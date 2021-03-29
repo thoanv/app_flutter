@@ -16,6 +16,8 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   String email;
+  String name;
+  String phone;
   String password;
   String conform_password;
   bool remember = false;
@@ -41,22 +43,43 @@ class _SignUpFormState extends State<SignUpForm> {
       key: _formKey,
       child: Column(
         children: [
+          buildNameFormField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          buildPhoneFormField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
           buildEmailFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildConformPassFormField(),
+          SizedBox(height: getProportionateScreenHeight(20)),
+          Row(
+            children: [
+              Checkbox(
+                value: remember,
+                activeColor: kPrimaryColor,
+                onChanged: (value) {
+                  setState(() {
+                    remember = value;
+                  });
+                },
+              ),
+              Text("Đồng ý với điều khoản của chúng tôi"),
+
+            ],
+          ),
           FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(40)),
+          SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: "Tiếp tục",
-            press: () {
-              if (_formKey.currentState.validate()) {
-                _formKey.currentState.save();
-                // if all are valid then go to success screen
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
-              }
-            },
+            press: () => _handleRegister()
+            // {
+            //   if (_formKey.currentState.validate()) {
+            //     _formKey.currentState.save();
+            //     // if all are valid then go to success screen
+            //     Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+            //   }
+            // },
           ),
         ],
       ),
@@ -160,5 +183,79 @@ class _SignUpFormState extends State<SignUpForm> {
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
     );
+  }
+
+  TextFormField buildPhoneFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      onSaved: (newValue) => phone = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kPhoneNumberNullError);
+        } else if (value.length >= 10) {
+          removeError(error: kShortPhoneError);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value.isEmpty) {
+          addError(error: kPhoneNumberNullError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Số điện thoại",
+        hintText: "Nhập số điện thoại của bạn",
+        // If  you are using latest version of flutter then lable text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Call.svg"),
+      ),
+    );
+  }
+
+  TextFormField buildNameFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      onSaved: (newValue) => name = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kNamelNullError);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value.isEmpty) {
+          addError(error: kNamelNullError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Họ và tên",
+        hintText: "Nhập họ và tên của bạn",
+        // If  you are using latest version of flutter then lable text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+      ),
+    );
+  }
+
+  void _handleRegister() async {
+      if (_formKey.currentState.validate()) {
+        var data = {
+          'name' : name,
+          'phone' : phone,
+          'email' : email,
+          'password' : password,
+        };
+
+        print(data);
+        // _formKey.currentState.save();
+        // // if all are valid then go to success screen
+        // Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+      }
   }
 }

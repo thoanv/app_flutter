@@ -25,13 +25,14 @@ const defaultDuration = Duration(milliseconds: 250);
 // Form Error
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-const String kEmailNullError = "Please Enter your email";
-const String kInvalidEmailError = "Please Enter Valid Email";
-const String kPassNullError = "Please Enter your password";
-const String kShortPassError = "Password is too short";
-const String kMatchPassError = "Passwords don't match";
-const String kNamelNullError = "Please Enter your name";
-const String kPhoneNumberNullError = "Please Enter your phone number";
+const String kEmailNullError = "Vui lòng nhập địa chỉ Email";
+const String kInvalidEmailError = "Vui lòng nhập Email hợp lệ";
+const String kPassNullError = "Vui lòng nhập mật khẩu";
+const String kShortPassError = "Mật khẩu quá ngắn";
+const String kMatchPassError = "Mật khẩu không giống nhau";
+const String kNamelNullError = "Vui lòng nhập họ và tên";
+const String kPhoneNumberNullError = "Vui lòng nhập số điện thoại";
+const String kShortPhoneError = "Số điện thoại quá ngắn";
 const String kAddressNullError = "Please Enter your address";
 
 final otpInputDecoration = InputDecoration(

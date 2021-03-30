@@ -34,6 +34,7 @@ const String kNamelNullError = "Vui lòng nhập họ và tên";
 const String kPhoneNumberNullError = "Vui lòng nhập số điện thoại";
 const String kShortPhoneError = "Số điện thoại quá ngắn";
 const String kAddressNullError = "Please Enter your address";
+const String kAgreeError = "Xác nhận đồng ý với các điều khoản sử dụng";
 
 final otpInputDecoration = InputDecoration(
   contentPadding:

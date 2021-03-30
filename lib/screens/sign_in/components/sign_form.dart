@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/helper/keyboard.dart';
+import 'package:shop_app/api/api.dart';
 import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
 import 'package:shop_app/screens/login_success/login_success_screen.dart';
 
@@ -19,6 +22,7 @@ class _SignFormState extends State<SignForm> {
   String phone;
   String password;
   bool remember = false;
+  bool _isLoading = false;
   final List<String> errors = [];
 
   void addError({String error}) {
@@ -34,7 +38,6 @@ class _SignFormState extends State<SignForm> {
         errors.remove(error);
       });
   }
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -71,17 +74,9 @@ class _SignFormState extends State<SignForm> {
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
-            text: "Đăng nhập",
-            press: () => _handleLogin()
-            // {
-            //   if (_formKey.currentState.validate()) {
-            //     _formKey.currentState.save();
-            //     // if all are valid then go to success screen
-            //     KeyboardUtil.hideKeyboard(context);
-            //     Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-            //   }
-            // },
-          ),
+            text: _isLoading ? "Loading...." : "Đăng nhập",
+            press: () => _isLoading ? null : handleLogin()
+            ),
         ],
       ),
     );
@@ -150,12 +145,30 @@ class _SignFormState extends State<SignForm> {
     );
   }
 
-  void _handleLogin() async {
-      if (_formKey.currentState.validate()) {
-        _formKey.currentState.save();
-        // if all are valid then go to success screen
-        KeyboardUtil.hideKeyboard(context);
-        Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-      }
+  void handleLogin() async {
+    setState(() {
+      _isLoading = true;
+    });
+    // if (_formKey.currentState.validate()) {
+    var data = {
+      'phone': '0356240993',
+      'password': '12345678',
+      'device_name': 'mobile',
+    };
+    var res = await CallApi().postData(data, 'sanctum/token');
+    if (res.statusCode == 200) {
+      var body = jsonDecode(res.body);
+      print(body['user']);
+      print(body['token']);
+      _formKey.currentState.save();
+      // if all are valid then go to success screen
+      KeyboardUtil.hideKeyboard(context);
+      // Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+    } else {
+      throw Exception('Failed.');
+    }
+    setState(() {
+      _isLoading = false;
+    });
   }
 }

@@ -1,41 +1,38 @@
 import 'package:flutter/material.dart';
 
 import '../../../size_config.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:shop_app/constants.dart';
 
 class DiscountBanner extends StatelessWidget {
-  const DiscountBanner({
-    Key key,
-  }) : super(key: key);
+  CarouselController buttonCarouselController = CarouselController();
+  final List<String> items = [
+    'assets/images/Image Banner 2.png',
+    'assets/images/Image Banner 3.png',
+  ];
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      // height: 90,
-      width: double.infinity,
-      margin: EdgeInsets.all(getProportionateScreenWidth(20)),
-      padding: EdgeInsets.symmetric(
-        horizontal: getProportionateScreenWidth(20),
-        vertical: getProportionateScreenWidth(15),
-      ),
-      decoration: BoxDecoration(
-        color: Color(0xFF4A3298),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text.rich(
-        TextSpan(
-          style: TextStyle(color: Colors.white),
-          children: [
-            TextSpan(text: "A Summer Surpise\n"),
-            TextSpan(
-              text: "Cashback 20%",
-              style: TextStyle(
-                fontSize: getProportionateScreenWidth(24),
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Column(children: <Widget>[
+        CarouselSlider(
+          options: CarouselOptions(height: 140.0),
+          items: items.map((i) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: EdgeInsets.symmetric(horizontal: 3.0),
+                  decoration: BoxDecoration(
+                    // color: Colors.amber,
+                    border: Border.all(width: 1.0, color: kPrimaryColor),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                  ),
+                  child: Image.asset(i, fit: BoxFit.cover),
+                );
+              },
+            );
+          }).toList(),
+        )
+      ]);
 }

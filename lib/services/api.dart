@@ -43,11 +43,11 @@ class CallApi{
   postData(appUrl, data) async {
     var url = Uri.parse(base_url+appUrl);
     var response = await http.post(url, body: data);
-      if (response.statusCode == 200) {
-        return response;
-      } else {
-        throw Exception('Failed.');
-      }
+    if (response.statusCode == 200) {
+      return response;
+    } else {
+      throw Exception('Failed.');
+    }
   }
   // postData(data, apiUrl) async {
   //   Map<String, String> headers = {'Content-Type':'application/json'};
@@ -65,7 +65,17 @@ class CallApi{
         headers: _setHeaders()
     );
   }
-
+  getUser(appUrl, token) async {
+    var fullUrl = base_url + appUrl;
+    print(fullUrl);
+    return await http.get(
+        fullUrl,
+        headers: {
+          'Content-type' : 'application/json',
+          'Authorization' : 'Bearer $token'
+        }
+    );
+  }
   _setHeaders() => {
     'Content-type' : 'application/json',
     'Accept': 'application/json',

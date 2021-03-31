@@ -12,7 +12,8 @@ void main() {
     MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => Auth()),
-        ]
+        ],
+      child: MyApp(),
     ),
   );
 }

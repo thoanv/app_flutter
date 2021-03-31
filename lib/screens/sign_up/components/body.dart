@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/components/exist_account_text.dart';
 import 'package:shop_app/components/socal_card.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/size_config.dart';
@@ -20,35 +21,36 @@ class Body extends StatelessWidget {
                 SizedBox(height: SizeConfig.screenHeight * 0.04), // 4%
                 Text("Đăng ký tài khoản", style: headingStyle),
                 Text(
-                  "Hoàn thành thông tin chi tiết của bạn hoặc tiếp tục\n với mạng xã hội",
+                  "Hoàn thành thông tin chi tiết của bạn hoặc tiếp tục",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
                 SignUpForm(),
-                SizedBox(height: SizeConfig.screenHeight * 0.08),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SocalCard(
-                      icon: "assets/icons/google-icon.svg",
-                      press: () {},
-                    ),
-                    SocalCard(
-                      icon: "assets/icons/facebook-2.svg",
-                      press: () {},
-                    ),
-                    SocalCard(
-                      icon: "assets/icons/twitter.svg",
-                      press: () {},
-                    ),
-                  ],
-                ),
+                SizedBox(height: getProportionateScreenHeight(30)),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     SocalCard(
+                //       icon: "assets/icons/google-icon.svg",
+                //       press: () {},
+                //     ),
+                //     SocalCard(
+                //       icon: "assets/icons/facebook-2.svg",
+                //       press: () {},
+                //     ),
+                //     SocalCard(
+                //       icon: "assets/icons/twitter.svg",
+                //       press: () {},
+                //     ),
+                //   ],
+                // ),
+                ExistAccountText(),
                 SizedBox(height: getProportionateScreenHeight(20)),
-                Text(
-                  'Bằng cách tiếp tục xác nhận rằng bạn đồng ý\n với Điều khoản và Điều kiện của chúng tôi',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.caption,
-                )
+                // Text(
+                //   'Bằng cách tiếp tục xác nhận rằng bạn đồng ý\n với Điều khoản và Điều kiện của chúng tôi',
+                //   textAlign: TextAlign.center,
+                //   style: Theme.of(context).textTheme.caption,
+                // )
               ],
             ),
           ),

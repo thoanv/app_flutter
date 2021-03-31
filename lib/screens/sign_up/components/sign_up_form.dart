@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/api/api.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
@@ -6,7 +7,6 @@ import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
-
 
 class SignUpForm extends StatefulWidget {
   @override
@@ -16,9 +16,11 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   String email;
+  String name;
+  String phone;
   String password;
   String conform_password;
-  bool remember = false;
+  bool agree = false;
   final List<String> errors = [];
 
   void addError({String error}) {
@@ -41,23 +43,41 @@ class _SignUpFormState extends State<SignUpForm> {
       key: _formKey,
       child: Column(
         children: [
+          buildNameFormField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          buildPhoneFormField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
           buildEmailFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildConformPassFormField(),
-          FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(40)),
-          DefaultButton(
-            text: "Tiếp tục",
-            press: () {
-              if (_formKey.currentState.validate()) {
-                _formKey.currentState.save();
-                // if all are valid then go to success screen
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
-              }
-            },
+          SizedBox(height: getProportionateScreenHeight(20)),
+          Row(
+            children: [
+              Checkbox(
+                value: agree,
+                activeColor: kPrimaryColor,
+                onChanged: (value) {
+                  setState(() {
+                    agree = value;
+                  });
+                },
+              ),
+              Text("Đồng ý với điều khoản của chúng tôi"),
+            ],
           ),
+          FormError(errors: errors),
+          SizedBox(height: getProportionateScreenHeight(20)),
+          DefaultButton(text: "Tiếp tục", press: () => handleRegister()
+              // {
+              //   if (_formKey.currentState.validate()) {
+              //     _formKey.currentState.save();
+              //     // if all are valid then go to success screen
+              //     Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+              //   }
+              // },
+              ),
         ],
       ),
     );
@@ -160,5 +180,79 @@ class _SignUpFormState extends State<SignUpForm> {
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
     );
+  }
+
+  TextFormField buildPhoneFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      onSaved: (newValue) => phone = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kPhoneNumberNullError);
+        } else if (value.length >= 10) {
+          removeError(error: kShortPhoneError);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value.isEmpty) {
+          addError(error: kPhoneNumberNullError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Số điện thoại",
+        hintText: "Nhập số điện thoại của bạn",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Call.svg"),
+      ),
+    );
+  }
+
+  TextFormField buildNameFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      onSaved: (newValue) => name = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kNamelNullError);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value.isEmpty) {
+          addError(error: kNamelNullError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Họ và tên",
+        hintText: "Nhập họ và tên của bạn",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+      ),
+    );
+  }
+
+  void handleRegister() async {
+    if (agree) {
+      if (_formKey.currentState.validate()) {
+        var data = {
+          'name': name,
+          'phone': phone,
+          'email': email,
+          'password': password,
+        };
+        var res = await CallApi().postData(data, 'register');
+        print(res);
+      }
+    } else {
+      addError(error: kAgreeError);
+    }
+    // _formKey.currentState.save();
+    // // if all are valid then go to success screen
+    // Navigator.pushNamed(context, CompleteProfileScreen.routeName);
   }
 }

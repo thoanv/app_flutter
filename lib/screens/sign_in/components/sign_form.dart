@@ -1,9 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/helper/keyboard.dart';
+import 'package:shop_app/api/api.dart';
 import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
-import 'package:shop_app/screens/login_success/login_success_screen.dart';
+
+import 'package:shop_app/services/auth.dart';
 
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
@@ -16,9 +21,10 @@ class SignForm extends StatefulWidget {
 
 class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
-  String email;
+  String phone;
   String password;
   bool remember = false;
+  bool _isLoading = false;
   final List<String> errors = [];
 
   void addError({String error}) {
@@ -41,7 +47,7 @@ class _SignFormState extends State<SignForm> {
       key: _formKey,
       child: Column(
         children: [
-          buildEmailFormField(),
+          buildEPhoneFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
@@ -71,16 +77,8 @@ class _SignFormState extends State<SignForm> {
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
-            text: "Tiếp Tục",
-            press: () {
-              if (_formKey.currentState.validate()) {
-                _formKey.currentState.save();
-                // if all are valid then go to success screen
-                KeyboardUtil.hideKeyboard(context);
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-              }
-            },
-          ),
+              text: _isLoading ? "Loading...." : "Đăng nhập",
+              press: () => _isLoading ? null : handleLogin()),
         ],
       ),
     );
@@ -96,7 +94,7 @@ class _SignFormState extends State<SignForm> {
         } else if (value.length >= 8) {
           removeError(error: kShortPassError);
         }
-        return null;
+        password = value;
       },
       validator: (value) {
         if (value.isEmpty) {
@@ -119,36 +117,51 @@ class _SignFormState extends State<SignForm> {
     );
   }
 
-  TextFormField buildEmailFormField() {
+  TextFormField buildEPhoneFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue) => email = newValue,
+      onSaved: (newValue) => phone = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: kEmailNullError);
-        } else if (emailValidatorRegExp.hasMatch(value)) {
-          removeError(error: kInvalidEmailError);
+          removeError(error: kPhoneNumberNullError);
+        } else if (value.length >= 10) {
+          removeError(error: kShortPhoneError);
         }
-        return null;
+        phone = value;
       },
       validator: (value) {
         if (value.isEmpty) {
-          addError(error: kEmailNullError);
-          return "";
-        } else if (!emailValidatorRegExp.hasMatch(value)) {
-          addError(error: kInvalidEmailError);
+          addError(error: kPhoneNumberNullError);
           return "";
         }
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Email",
-        hintText: "Nhập email của bạn",
+        labelText: "Số điện thoại",
+        hintText: "Nhập số điện thoại của bạn",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Call.svg"),
       ),
     );
+  }
+  void handleLogin() async {
+    setState(() {
+      _isLoading = true;
+    });
+    if (_formKey.currentState.validate()) {
+      print(this.phone);
+      Map creds = {
+        'phone': phone,
+        'password': password,
+        'device_name': 'mobile',
+      };
+      Provider.of<Auth>(context, listen: false).login(creds);
+      KeyboardUtil.hideKeyboard(context);
+    }
+    setState(() {
+      _isLoading = false;
+    });
   }
 }

@@ -19,7 +19,8 @@ class Body extends StatelessWidget {
           children: [
             SizedBox(height: getProportionateScreenWidth(10)),
             DiscountBanner(),
-            Categories(),
+            SizedBox(height: getProportionateScreenWidth(20)),
+            // Categories(),
             SpecialOffers(),
             SizedBox(height: getProportionateScreenWidth(30)),
             PopularProducts(),

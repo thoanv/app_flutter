@@ -26,14 +26,44 @@ class SpecialOffers extends StatelessWidget {
           child: Row(
             children: [
               SpecialOfferCard(
-                image: "assets/images/Image Banner 2.png",
-                category: "Smartphone",
+                image: "https://cdn.davichat.info/categories/16164927731.png",
+                category: "Điện thoại & phụ kiện",
                 numOfBrands: 18,
                 press: () {},
               ),
               SpecialOfferCard(
-                image: "assets/images/Image Banner 3.png",
-                category: "Fashion",
+                image: "https://cdn.davichat.info/categories/16165604362.png",
+                category: "Mẹ và bé",
+                numOfBrands: 24,
+                press: () {},
+              ),
+              SpecialOfferCard(
+                image: "https://cdn.davichat.info/categories/16165604572.png",
+                category: "Nhà cửa & đời sống",
+                numOfBrands: 24,
+                press: () {},
+              ),
+              SpecialOfferCard(
+                image: "https://cdn.davichat.info/categories/16165604702.png",
+                category: "Thời trang nữ",
+                numOfBrands: 24,
+                press: () {},
+              ),
+              SpecialOfferCard(
+                image: "https://cdn.davichat.info/categories/16165604702.png",
+                category: "Thời trang nữ",
+                numOfBrands: 24,
+                press: () {},
+              ),
+              SpecialOfferCard(
+                image: "https://cdn.davichat.info/categories/16165604702.png",
+                category: "Thời trang nữ",
+                numOfBrands: 24,
+                press: () {},
+              ),
+              SpecialOfferCard(
+                image: "https://cdn.davichat.info/categories/16165604702.png",
+                category: "Thời trang nữ",
                 numOfBrands: 24,
                 press: () {},
               ),
@@ -62,17 +92,17 @@ class SpecialOfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
+      padding: EdgeInsets.only(left: getProportionateScreenWidth(10)),
       child: GestureDetector(
         onTap: press,
         child: SizedBox(
-          width: getProportionateScreenWidth(242),
+          width: getProportionateScreenWidth(100),
           height: getProportionateScreenWidth(100),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(8),
             child: Stack(
               children: [
-                Image.asset(
+                Image.network(
                   image,
                   fit: BoxFit.cover,
                 ),
@@ -83,28 +113,25 @@ class SpecialOfferCard extends StatelessWidget {
                       end: Alignment.bottomCenter,
                       colors: [
                         Color(0xFF343434).withOpacity(0.4),
-                        Color(0xFF343434).withOpacity(0.15),
+                        Color(0xFF343434).withOpacity(0.2),
                       ],
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(15.0),
-                    vertical: getProportionateScreenWidth(10),
-                  ),
-                  child: Text.rich(
-                    TextSpan(
+                Center(
+                  child: RichText(
+                    softWrap: true,
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
                       style: TextStyle(color: Colors.white),
                       children: [
                         TextSpan(
                           text: "$category\n",
                           style: TextStyle(
-                            fontSize: getProportionateScreenWidth(18),
-                            fontWeight: FontWeight.bold,
+                            fontSize: getProportionateScreenWidth(14),
+                            fontWeight: FontWeight.w400
                           ),
                         ),
-                        TextSpan(text: "$numOfBrands Brands")
                       ],
                     ),
                   ),

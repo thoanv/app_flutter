@@ -8,7 +8,7 @@ class DiscountBanner extends StatelessWidget {
   CarouselController buttonCarouselController = CarouselController();
   final List<String> items = [
     'assets/images/Image Banner 2.png',
-    'assets/images/Image Banner 3.png',
+    'assets/images/Image Banner 2.png',
   ];
 
   @override
@@ -23,12 +23,21 @@ class DiscountBanner extends StatelessWidget {
                   margin: EdgeInsets.symmetric(horizontal: 3.0),
                   decoration: BoxDecoration(
                     // color: Colors.amber,
-                    border: Border.all(width: 1.0, color: kPrimaryColor),
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
                     ),
                   ),
-                  child: Image.asset(i, fit: BoxFit.cover),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Stack(
+                      children: [
+                        Image.asset(
+                        i,
+                        fit: BoxFit.cover,
+                        ),
+                    ],
+                    ),
+                  )
                 );
               },
             );

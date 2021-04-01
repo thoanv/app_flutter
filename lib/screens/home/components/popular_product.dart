@@ -18,28 +18,13 @@ class PopularProducts extends StatelessWidget {
           child: SectionTitle(title: "Sản phẩm", press: () {}),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
-        // SingleChildScrollView(
-        //   scrollDirection: Axis.horizontal,
-        //   child: Column(
-        //     children: [
-        //       ...List.generate(
-        //         demoProducts.length,
-        //             (index) {
-        //           if (demoProducts[index].isPopular)
-        //             return ProductCard(product: demoProducts[index]);
-        //
-        //           return SizedBox
-        //               .shrink(); // here by default width and height is 0
-        //         },
-        //       ),
-        //       SizedBox(width: getProportionateScreenWidth(20)),
-        //     ],
-        //   ),
-        // ),
-        Expanded(
+        SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
               child: GridView.builder(
+                controller: new ScrollController(keepScrollOffset: false),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
                 itemCount: demoProducts.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -50,9 +35,29 @@ class PopularProducts extends StatelessWidget {
                 itemBuilder: (context, index) => ItemCart(
                   product: demoProducts[index],
                 ),
-              ),
             ),
+          ),
         ),
+
+        // Expanded(
+        //   child: Padding(
+        //     padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+        //     child: GridView.builder(
+        //       shrinkWrap: true,
+        //       scrollDirection: Axis.vertical,
+        //       itemCount: demoProducts.length,
+        //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //         crossAxisCount: 2,
+        //         mainAxisSpacing: 10,
+        //         crossAxisSpacing: 10,
+        //         childAspectRatio: 0.75,
+        //       ),
+        //       itemBuilder: (context, index) => ItemCart(
+        //         product: demoProducts[index],
+        //       ),
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

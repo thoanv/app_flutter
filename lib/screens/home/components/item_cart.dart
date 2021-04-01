@@ -17,15 +17,15 @@ class ItemCart extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Expanded(
-          child: Container(
-            padding: EdgeInsets.all(kDefaultPadding),
-            // height: 180,
-            // width: 160,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
+        Container(
+          child: Expanded(
+            child: Container(
+              padding: EdgeInsets.all(kDefaultPadding),
+              decoration: BoxDecoration(
+                  color: Colors.black45
+              ),
+              child: Image.network(product.images[0]),
             ),
-            child: Image.asset(product.images[0]),
           ),
         ),
         Padding(
@@ -40,6 +40,7 @@ class ItemCart extends StatelessWidget {
           style:TextStyle(fontWeight: FontWeight.bold),
         )
       ],
+
     );
   }
 }

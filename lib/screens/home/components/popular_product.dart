@@ -19,17 +19,20 @@ class PopularProducts extends StatelessWidget {
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
         SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+            child: Container(
+              padding: const EdgeInsets.all(kDefaultPadding / 4),
+              decoration: BoxDecoration(
+                color: kPrimaryColor,
+              ),
               child: GridView.builder(
-                controller: new ScrollController(keepScrollOffset: false),
+                controller: new ScrollController(keepScrollOffset: true),
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
                 itemCount: demoProducts.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 7,
+                  crossAxisSpacing: 7,
                   childAspectRatio: 0.75,
                 ),
                 itemBuilder: (context, index) => ItemCart(
@@ -38,26 +41,6 @@ class PopularProducts extends StatelessWidget {
             ),
           ),
         ),
-
-        // Expanded(
-        //   child: Padding(
-        //     padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-        //     child: GridView.builder(
-        //       shrinkWrap: true,
-        //       scrollDirection: Axis.vertical,
-        //       itemCount: demoProducts.length,
-        //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        //         crossAxisCount: 2,
-        //         mainAxisSpacing: 10,
-        //         crossAxisSpacing: 10,
-        //         childAspectRatio: 0.75,
-        //       ),
-        //       itemBuilder: (context, index) => ItemCart(
-        //         product: demoProducts[index],
-        //       ),
-        //     ),
-        //   ),
-        // ),
       ],
     );
   }

@@ -14,33 +14,48 @@ class ItemCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Container(
-          child: Expanded(
-            child: Container(
-              padding: EdgeInsets.all(kDefaultPadding),
-              decoration: BoxDecoration(
-                  color: Colors.black45
+    return Container(
+      padding: EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        color: Colors.white,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.symmetric(horizontal : 5),
+            // decoration: BoxDecoration(
+            //   color: Colors.black,
+            // ),
+            child: Expanded(
+              child: Container(
+                padding: EdgeInsets.all(kDefaultPadding/5),
+                child: Image.network(
+                    product.images[0],
+                    fit:BoxFit.cover
+                ),
               ),
-              child: Image.network(product.images[0]),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4 ),
-          child: Text(
-            product.title,
-            style: TextStyle(color: kPrimaryColor),
+          Container(
+            padding: const EdgeInsets.all(kDefaultPadding/4),
+            height: 200,
+            child: Text(
+              product.title,
+              style: TextStyle(color: Colors.black, fontSize: 16),
+            ),
           ),
-        ),
-        Text(
-          "\$${product.price}",
-          style:TextStyle(fontWeight: FontWeight.bold),
-        )
-      ],
+          Container(
+            padding: const EdgeInsets.all(2),
+            child: Text(
+            "\$${product.price}-${product.id}",
+            style:TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 18),
+          )
+          )
+        ],
 
+      ),
     );
+
   }
 }

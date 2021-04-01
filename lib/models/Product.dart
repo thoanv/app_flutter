@@ -27,10 +27,7 @@ List<Product> demoProducts = [
   Product(
     id: 1,
     images: [
-      "https://witchbeauty.net//Images/Uploadimages/anh%20san%20pham/nami-care-501.jpg",
-      "assets/images/ps4_console_white_2.png",
-      "assets/images/ps4_console_white_3.png",
-      "assets/images/ps4_console_white_4.png",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -38,7 +35,7 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Wireless Controller for PS4™",
+    title: "Tảo xoắn đại việt chất lượng cao",
     price: 64.99,
     description: description,
     rating: 4.8,
@@ -48,7 +45,7 @@ List<Product> demoProducts = [
   Product(
     id: 2,
     images: [
-      "https://witchbeauty.net//Images/Uploadimages/anh%20san%20pham/nami-care-501.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -65,7 +62,7 @@ List<Product> demoProducts = [
   Product(
     id: 3,
     images: [
-      "assets/images/glap.png",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -83,7 +80,7 @@ List<Product> demoProducts = [
   Product(
     id: 4,
     images: [
-      "https://witchbeauty.net//Images/Uploadimages/anh%20san%20pham/nami-care-501.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -101,10 +98,7 @@ List<Product> demoProducts = [
   Product(
     id: 5,
     images: [
-      "assets/images/ps4_console_white_1.png",
-      "assets/images/ps4_console_white_2.png",
-      "assets/images/ps4_console_white_3.png",
-      "assets/images/ps4_console_white_4.png",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -122,7 +116,7 @@ List<Product> demoProducts = [
   Product(
     id: 6,
     images: [
-      "https://witchbeauty.net//Images/Uploadimages/anh%20san%20pham/nami-care-501.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -139,7 +133,7 @@ List<Product> demoProducts = [
   Product(
     id: 7,
     images: [
-      "https://witchbeauty.net//Images/Uploadimages/anh%20san%20pham/nami-care-501.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -157,7 +151,7 @@ List<Product> demoProducts = [
   Product(
     id: 8,
     images: [
-      "https://witchbeauty.net//Images/Uploadimages/anh%20san%20pham/nami-care-501.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -174,7 +168,7 @@ List<Product> demoProducts = [
   Product(
     id: 9,
     images: [
-      "https://witchbeauty.net//Images/Uploadimages/anh%20san%20pham/nami-care-501.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -192,7 +186,7 @@ List<Product> demoProducts = [
   Product(
     id: 10,
     images: [
-      "https://witchbeauty.net//Images/Uploadimages/anh%20san%20pham/nami-care-501.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -209,7 +203,7 @@ List<Product> demoProducts = [
   Product(
     id: 11,
     images: [
-      "https://witchbeauty.net//Images/Uploadimages/anh%20san%20pham/nami-care-501.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -227,7 +221,7 @@ List<Product> demoProducts = [
   Product(
     id: 12,
     images: [
-      "https://witchbeauty.net//Images/Uploadimages/anh%20san%20pham/nami-care-501.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/screens/filter/filter_screen.dart';
 
 import '../../../size_config.dart';
 import 'section_title.dart';
@@ -29,7 +30,8 @@ class SpecialOffers extends StatelessWidget {
                 image: "https://cdn.davichat.info/categories/16164927731.png",
                 category: "Điện thoại & phụ kiện",
                 numOfBrands: 18,
-                press: () {},
+                press: () =>
+                    Navigator.pushNamed(context, FilterScreen.routeName),
               ),
               SpecialOfferCard(
                 image: "https://cdn.davichat.info/categories/16165604362.png",
@@ -128,9 +130,8 @@ class SpecialOfferCard extends StatelessWidget {
                         TextSpan(
                           text: "$category\n",
                           style: TextStyle(
-                            fontSize: getProportionateScreenWidth(14),
-                            fontWeight: FontWeight.w400
-                          ),
+                              fontSize: getProportionateScreenWidth(14),
+                              fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),

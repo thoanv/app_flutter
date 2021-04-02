@@ -21,6 +21,7 @@ class Product {
   });
 }
 
+
 // Our demo Products
 
 List<Product> demoProducts = [
@@ -37,8 +38,9 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Tảo xoắn đại việt chất lượng cao",
-    price: 64.99,
+    title:
+        "Tảo xoắn đại việt chất lượng cao Tảo xoắn đại việt chất lượng cao",
+    price: 700000,
     description: description,
     rating: 4.8,
     isFavourite: true,
@@ -59,7 +61,7 @@ List<Product> demoProducts = [
       Colors.white,
     ],
     title: "Nike Sport White - Man Pant",
-    price: 50.5,
+    price: 700000,
     description: description,
     rating: 4.1,
     isPopular: true,
@@ -76,7 +78,7 @@ List<Product> demoProducts = [
       Colors.white,
     ],
     title: "Gloves XC Omega - Polygon",
-    price: 36.55,
+    price: 700000,
     description: description,
     rating: 4.1,
     isFavourite: true,
@@ -94,12 +96,11 @@ List<Product> demoProducts = [
       Colors.white,
     ],
     title: "Logitech Head",
-    price: 20.20,
+    price: 200000,
     description: description,
     rating: 4.1,
     isFavourite: true,
   ),
-
   Product(
     id: 5,
     images: [
@@ -112,7 +113,7 @@ List<Product> demoProducts = [
       Colors.white,
     ],
     title: "Wireless Controller for PS4™",
-    price: 64.99,
+    price: 900000,
     description: description,
     rating: 4.8,
     isFavourite: true,

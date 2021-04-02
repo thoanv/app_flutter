@@ -13,6 +13,7 @@ class Body extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: HomeHeader(),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(

@@ -6,8 +6,8 @@ import 'package:shop_app/screens/details/details_screen.dart';
 import '../constants.dart';
 import '../size_config.dart';
 
-class ProductCard extends StatelessWidget {
-  const ProductCard({
+class ProductCard__ extends StatelessWidget {
+  const ProductCard__({
     Key key,
     this.width = 140,
     this.aspectRetio = 1.02,

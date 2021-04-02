@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/product_card.dart';
+import 'package:shop_app/components/product_cart.dart';
 import 'package:shop_app/models/Product.dart';
 import 'package:shop_app/constants.dart';
 
@@ -35,7 +36,7 @@ class PopularProducts extends StatelessWidget {
                   crossAxisSpacing: 7,
                   childAspectRatio: 0.75,
                 ),
-                itemBuilder: (context, index) => ItemCart(
+                itemBuilder: (context, index) => ProductCart(
                   product: demoProducts[index],
                 ),
             ),

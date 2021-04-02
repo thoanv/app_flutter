@@ -7,8 +7,8 @@ import '../../../constants.dart';
 import '../../../size_config.dart';
 
 
-class ProductDescription extends StatelessWidget {
-  const ProductDescription({
+class ProductClassify extends StatelessWidget {
+  const ProductClassify({
     Key key,
     @required this.product,
     this.pressOnSeeMore,

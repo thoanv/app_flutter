@@ -4,9 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../size_config.dart';
 
 class CustomAppBar extends PreferredSize {
-  final double rating;
-
-  CustomAppBar({@required this.rating});
+  CustomAppBar();
 
   @override
   // AppBar().preferredSize.height provide us the height that appy on our app bar
@@ -17,7 +15,7 @@ class CustomAppBar extends PreferredSize {
     return SafeArea(
       child: Padding(
         padding:
-            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(5)),
         child: Row(
           children: [
             SizedBox(
@@ -25,38 +23,38 @@ class CustomAppBar extends PreferredSize {
               width: getProportionateScreenWidth(40),
               child: FlatButton(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(60),
+                  // borderRadius: BorderRadius.circular(60),
                 ),
-                color: Colors.white,
+                // color: Colors.white,
                 padding: EdgeInsets.zero,
                 onPressed: () => Navigator.pop(context),
                 child: SvgPicture.asset(
-                  "assets/icons/Back ICon.svg",
+                  "assets/icons/arrow.svg",
                   height: 15,
                 ),
               ),
             ),
             Spacer(),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(14),
-              ),
-              child: Row(
-                children: [
-                  Text(
-                    "$rating",
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(width: 5),
-                  SvgPicture.asset("assets/icons/Star Icon.svg"),
-                ],
-              ),
-            )
+            // Container(
+            //   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
+            //   decoration: BoxDecoration(
+            //     color: Colors.white,
+            //     borderRadius: BorderRadius.circular(14),
+            //   ),
+            //   child: Row(
+            //     children: [
+            //       Text(
+            //         "$rating",
+            //         style: const TextStyle(
+            //           fontSize: 14,
+            //           fontWeight: FontWeight.w600,
+            //         ),
+            //       ),
+            //       const SizedBox(width: 5),
+            //       SvgPicture.asset("assets/icons/Star Icon.svg"),
+            //     ],
+            //   ),
+            // )
           ],
         ),
       ),

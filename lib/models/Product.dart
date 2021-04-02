@@ -28,6 +28,8 @@ List<Product> demoProducts = [
     id: 1,
     images: [
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -45,6 +47,9 @@ List<Product> demoProducts = [
   Product(
     id: 2,
     images: [
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [

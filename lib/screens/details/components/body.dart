@@ -25,6 +25,9 @@ class Body extends StatelessWidget {
           child: Column(
             children: [
               ProductTitle(product: product),
+              ProductClassify(product: product, title: "Màu sắc"),
+              SizedBox(height: getProportionateScreenWidth(10)),
+              ProductClassify(product: product, title: "Size"),
               TopRoundedContainer(
                   color: Colors.white,
                   child: Row(

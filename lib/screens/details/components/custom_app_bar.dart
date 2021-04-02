@@ -58,6 +58,17 @@ class CustomAppBar extends PreferredSize {
           ],
         ),
       ),
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(48.0),
+        child: Theme(
+          data: Theme.of(context).copyWith(accentColor: Colors.white),
+          child: Container(
+            height: 48.0,
+            alignment: Alignment.center,
+            child: TabPageSelector(controller: _tabController),
+          ),
+        ), 
+      ),
     );
   }
 }

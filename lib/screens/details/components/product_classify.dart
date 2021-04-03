@@ -1,52 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/models/Product.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:shop_app/screens/details/components/box_attribute.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
 class ProductClassify extends StatelessWidget {
-  final String title;
   const ProductClassify({
     Key key,
     @required this.product,
-    this.pressOnSeeMore,
-    this.title,
+    this.press,
   }) : super(key: key);
-
   final Product product;
-  final GestureTapCallback pressOnSeeMore;
+  final GestureTapCallback press;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                title+" :",
-                style:TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 16),
-              ),
-              Wrap(
-                direction: Axis.horizontal,
-                spacing: 10.0, // gap between adjacent chips
-                runSpacing: 4.0, // gap between lines
+      padding: EdgeInsets.symmetric(horizontal: kDefaultPadding/2),
+      margin: EdgeInsets.symmetric(vertical: 8),
+      child: GestureDetector(
+        onTap: () {
+          print("Chọn loại hàng");
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: [
+                Text(
+                  'Chọn loại hàng :',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontSize: 18),
+                ),
+                Spacer(),
+                SvgPicture.asset('assets/icons/arrow_right.svg')
+              ],
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
                 children: <Widget>[
-                  box_attribute(title: "Đỏ Vàng"),
-                  box_attribute(title: "Xanh"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
+                  box_attribute(image: "assets/images/ps4_console_blue_4.png"),
                 ],
-              )
-            ],
-          ),
-        ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-
-

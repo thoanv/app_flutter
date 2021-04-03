@@ -6,55 +6,162 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
-
-class ProductDescription extends StatelessWidget {
-  const ProductDescription({
-    Key key,
-    @required this.product,
-    this.pressOnSeeMore,
-  }) : super(key: key);
-
+class ProductDescription extends StatefulWidget {
   final Product product;
-  final GestureTapCallback pressOnSeeMore;
+  var maxLine = 3;
 
+  ProductDescription({Key key, this.product}) : super(key: key);
+
+  @override
+  _ProductDescriptionState createState() => new _ProductDescriptionState();
+}
+
+class _ProductDescriptionState extends State<ProductDescription> {
+  // final GestureTapCallback pressOnSeeMore;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(
-            left: getProportionateScreenWidth(20),
-            right: getProportionateScreenWidth(64),
-          ),
+          padding: EdgeInsets.symmetric(
+              horizontal: kDefaultPadding / 2, vertical: kDefaultPadding / 2),
           child: Text(
-            product.description,
-            maxLines: 3,
+            'Chi tiết sản phẩm',
+            style: TextStyle(
+                fontWeight: FontWeight.bold, color: Colors.black, fontSize: 18),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(width: 0.5, color: Colors.black),
+            ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
-            vertical: 10,
+          padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2, vertical: kDefaultPadding / 2),
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: [
+                  Text(
+                    'Xuất sứ : ',
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                  Spacer(),
+                  Text(
+                    'Việt Nam',
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                ],
+              ),
+              Padding(padding:EdgeInsets.symmetric(horizontal: kDefaultPadding / 2, vertical: kDefaultPadding / 2)),
+              Row(
+                children: [
+                  Text(
+                    'Gửi từ : ',
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                  Spacer(),
+                  Text(
+                    'Quận Hà Đông, Tp Hà Nội',
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                ],
+              ),
+            ],
           ),
-          child: GestureDetector(
-            onTap: () {},
-            child: Row(
-              children: [
-                Text(
-                  "See More Detail",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w600, color: kPrimaryColor),
-                ),
-                SizedBox(width: 5),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  size: 12,
-                  color: kPrimaryColor,
-                ),
-              ],
+
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(width: 0.5, color: Colors.black),
             ),
           ),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: kDefaultPadding / 5),
+                  ),
+                  widget.maxLine > 0
+                      ? Text(
+                    widget.product.description,
+                    maxLines: widget.maxLine,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  )
+                      : Text(widget.product.description,
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(color: Colors.black, fontSize: 16)),
+                ],
+              ),
+            ),
+            Center(
+              child: Padding(
+                padding: EdgeInsets.only(top: kDefaultPadding / 2),
+                child: GestureDetector(
+                  onTap: () =>
+                  {
+                    if (widget.maxLine > 0)
+                      setState(() => {widget.maxLine = 0})
+                    else
+                      setState(() => {widget.maxLine = 3})
+                  },
+                  child: Column(
+
+                    children: [
+                      if(widget.maxLine > 0)
+                        new MoreIcon(title: "Xem thêm",
+                          icon: "assets/icons/more-down.svg",)
+                      else
+                        new MoreIcon(
+                          title: "Thu gọn", icon: "assets/icons/more-up.svg",)
+                    ],
+                  ),
+                ),
+              ),
+
+            )
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class MoreIcon extends StatelessWidget {
+  final String title;
+  final String icon;
+
+  const MoreIcon({
+    Key key,
+    this.title,
+    this.icon,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Text(
+          title,
+          style: TextStyle(
+              fontWeight: FontWeight.w600, color: Colors.red, fontSize: 14),
+        ),
+        SvgPicture.asset(
+          icon,
+          height: 10,
         )
       ],
     );

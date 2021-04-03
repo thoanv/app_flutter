@@ -35,40 +35,23 @@ class CustomAppBar extends PreferredSize {
               ),
             ),
             Spacer(),
-            // Container(
-            //   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
-            //   decoration: BoxDecoration(
-            //     color: Colors.white,
-            //     borderRadius: BorderRadius.circular(14),
-            //   ),
-            //   child: Row(
-            //     children: [
-            //       Text(
-            //         "$rating",
-            //         style: const TextStyle(
-            //           fontSize: 14,
-            //           fontWeight: FontWeight.w600,
-            //         ),
-            //       ),
-            //       const SizedBox(width: 5),
-            //       SvgPicture.asset("assets/icons/Star Icon.svg"),
-            //     ],
-            //   ),
-            // )
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
+              decoration: BoxDecoration(
+              ),
+              child: Row(
+                children: [
+                  SvgPicture.asset(
+                      "assets/icons/cart-icon.svg",
+                    height: 25,
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(48.0),
-        child: Theme(
-          data: Theme.of(context).copyWith(accentColor: Colors.white),
-          child: Container(
-            height: 48.0,
-            alignment: Alignment.center,
-            child: TabPageSelector(controller: _tabController),
-          ),
-        ), 
-      ),
+
     );
   }
 }

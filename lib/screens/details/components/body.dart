@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/models/Product.dart';
+import 'package:shop_app/screens/details/components/information_shop.dart';
 import 'package:shop_app/screens/details/components/product_classify.dart';
 import 'package:shop_app/screens/details/components/product_title.dart';
 import 'package:shop_app/size_config.dart';
@@ -25,26 +26,42 @@ class Body extends StatelessWidget {
           child: Column(
             children: [
               ProductTitle(product: product),
-              ProductClassify(product: product, title: "Màu sắc"),
-              SizedBox(height: getProportionateScreenWidth(10)),
-              ProductClassify(product: product, title: "Size"),
+              // ProductClassify(product: product, title: "Màu sắc"),
+              // ProductClassify(product: product, title: "Size"),
               TopRoundedContainer(
-                  color: Colors.white,
+                  color: Color(0xFFF6F7F9),
                   child: Row(
                     children: <Widget>[
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          
-                        ],
-                      ),
+                      Column(),
                     ],
                   ),
               ),
+              ProductClassify(
+                  product: product,
+                  press: () {
+                    print("Chọn loại hàng");
+                  },
+              ),
+              TopRoundedContainer(
+                color: Color(0xFFF6F7F9),
+                child: Row(
+                  children: <Widget>[
+                    Column(),
+                  ],
+                ),
+              ),
               ProductDescription(
                 product: product,
-                pressOnSeeMore: () {},
               ),
+              TopRoundedContainer(
+                color: Color(0xFFF6F7F9),
+                child: Row(
+                  children: <Widget>[
+                    Column(),
+                  ],
+                ),
+              ),
+              InformationShop(),
               TopRoundedContainer(
                 color: Color(0xFFF6F7F9),
                 child: Column(

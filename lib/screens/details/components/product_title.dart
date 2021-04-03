@@ -40,7 +40,7 @@ class ProductTitle extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       "\₫ 200.000",
-                      style:TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 18),
+                      style:TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 20),
                     ),
                     SizedBox(width: getProportionateScreenWidth(5)),
                     Text(

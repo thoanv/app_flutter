@@ -28,8 +28,8 @@ List<Product> demoProducts = [
   Product(
     id: 1,
     images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+      "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
+      "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
     colors: [
@@ -39,7 +39,7 @@ List<Product> demoProducts = [
       Colors.white,
     ],
     title:
-        "Tảo xoắn đại việt chất lượng cao Tảo xoắn đại việt chất lượng cao",
+        "Tảo xoắn đại việt chất lượng cao Tảo xoắn đại việt chất lượng cao rất là tuyệt vời với người dùng",
     price: 700000,
     description: description,
     rating: 4.8,
@@ -49,7 +49,7 @@ List<Product> demoProducts = [
   Product(
     id: 2,
     images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+      "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
@@ -60,7 +60,7 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Nike Sport White - Man Pant",
+    title: "Tảo xoắn đại việt chất lượng cao Tảo xoắn đại việt chất lượng cao rất là tuyệt vời với người dùng",
     price: 700000,
     description: description,
     rating: 4.1,
@@ -87,7 +87,7 @@ List<Product> demoProducts = [
   Product(
     id: 4,
     images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+      "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -192,7 +192,7 @@ List<Product> demoProducts = [
   Product(
     id: 10,
     images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRszZuaV_1IEGyYWERDbVnEYyS1RR-sHw-3Lg&usqp=CAU",
     ],
     colors: [
       Color(0xFFF6625E),

@@ -63,7 +63,9 @@ class ProductCart extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: Colors.red,
                             fontSize: 18),
-                      )))
+                      ),
+                  ),
+              ),
             ],
           ),
         ),

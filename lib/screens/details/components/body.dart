@@ -4,6 +4,7 @@ import 'package:shop_app/models/Product.dart';
 import 'package:shop_app/screens/details/components/information_shop.dart';
 import 'package:shop_app/screens/details/components/product_classify.dart';
 import 'package:shop_app/screens/details/components/product_title.dart';
+import 'package:shop_app/screens/details/components/related_products.dart';
 import 'package:shop_app/size_config.dart';
 
 import 'color_dots.dart';
@@ -64,24 +65,18 @@ class Body extends StatelessWidget {
               InformationShop(),
               TopRoundedContainer(
                 color: Color(0xFFF6F7F9),
-                child: Column(
-                  children: [
-                    ColorDots(product: product),
-                    TopRoundedContainer(
-                      color: Colors.white,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          left: SizeConfig.screenWidth * 0.15,
-                          right: SizeConfig.screenWidth * 0.15,
-                          bottom: getProportionateScreenWidth(40),
-                          top: getProportionateScreenWidth(15),
-                        ),
-                        child: DefaultButton(
-                          text: "Add To Cart",
-                          press: () {},
-                        ),
-                      ),
-                    ),
+                child: Row(
+                  children: <Widget>[
+                    Column(),
+                  ],
+                ),
+              ),
+              RelatedProducts(),
+              TopRoundedContainer(
+                color: Color(0xFFF6F7F9),
+                child: Row(
+                  children: <Widget>[
+                    Column(),
                   ],
                 ),
               ),

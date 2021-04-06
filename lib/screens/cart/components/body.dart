@@ -48,10 +48,10 @@ class _BodyState extends State<Body> {
             ),
           ),
         ),
-        Icon(Icons.directions_transit),
-        Icon(Icons.directions_bike),
-        Icon(Icons.directions_transit),
-        Icon(Icons.directions_bike),
+        Icon(Icons.hourglass_empty),
+        Icon(Icons.hourglass_empty),
+        Icon(Icons.hourglass_empty),
+        Icon(Icons.hourglass_empty),
       ],
     );
   }

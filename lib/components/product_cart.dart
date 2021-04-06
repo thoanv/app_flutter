@@ -54,20 +54,32 @@ class ProductCart extends StatelessWidget {
                 ),
               ),
               Expanded(
-                  child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Text(
-                        "${NumberFormat.currency(locale: 'vi', symbol: '₫').format(product.price)}",
-
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red,
-                            fontSize: 18),
-                      )))
+                  child: Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: Text(
+                      "${NumberFormat.currency(locale: 'vi', symbol: '₫').format(product.price)}",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red,
+                          fontSize: 18),
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: Text(
+                      "Đã Bán 10K",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    ),
+                  ),
+                ],
+              )),
             ],
           ),
         ),
-
       ),
     );
   }

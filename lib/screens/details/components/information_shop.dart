@@ -43,7 +43,7 @@ class InformationShop extends StatelessWidget {
                       // Respond to button press
                     },
                     icon: Icon(Icons.remove_red_eye_outlined, size: 18),
-                    label: Text("Xem shop", style: TextStyle(color: Colors.black, fontSize: 14)),
+                    label: Text("Tới gian hàng", style: TextStyle(color: Colors.black, fontSize: 14)),
                   )
                 ],
             ),

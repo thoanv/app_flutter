@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 class ProductCart extends StatelessWidget {
   final Product product;
   final Function press;
+
   const ProductCart({
     Key key,
     this.product,
@@ -54,30 +55,30 @@ class ProductCart extends StatelessWidget {
                 ),
               ),
               Expanded(
-
                   child: Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: Text(
-                      "${NumberFormat.currency(locale: 'vi', symbol: '₫').format(product.price)}",
-                      style: TextStyle(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Text(
+                          "${NumberFormat.currency(locale: 'vi', symbol: '₫').format(product.price)}",
+                          style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.red,
                           fontSize: 18),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Text(
-                      "Đã Bán 10K",
-                      style:
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Text(
+                          "Đã Bán 10K",
+                          style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                    ),
-                  ),
-                ],
-              )),
+                        ),
+                      ),
+                  ],
+              ),
+              ),
             ],
           ),
         ),

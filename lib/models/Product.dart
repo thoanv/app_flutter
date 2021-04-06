@@ -21,7 +21,6 @@ class Product {
   });
 }
 
-
 // Our demo Products
 
 List<Product> demoProducts = [
@@ -38,8 +37,7 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title:
-        "Tảo xoắn đại việt chất lượng cao Tảo xoắn đại việt chất lượng cao",
+    title: "Tảo xoắn đại việt chất lượng cao",
     price: 700000,
     description: description,
     rating: 4.8,

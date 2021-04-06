@@ -19,25 +19,25 @@ class PopularProducts extends StatelessWidget {
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
         SingleChildScrollView(
-            child: Container(
-              padding: const EdgeInsets.all(kDefaultPadding / 4),
-              decoration: BoxDecoration(
-                color: kPrimaryColor,
+          child: Container(
+            padding: const EdgeInsets.all(kDefaultPadding / 4),
+            decoration: BoxDecoration(
+              color: kPrimaryColor,
+            ),
+            child: GridView.builder(
+              controller: new ScrollController(keepScrollOffset: true),
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: demoProducts.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 7,
+                crossAxisSpacing: 7,
+                childAspectRatio: 0.75,
               ),
-              child: GridView.builder(
-                controller: new ScrollController(keepScrollOffset: true),
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: demoProducts.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 7,
-                  crossAxisSpacing: 7,
-                  childAspectRatio: 0.75,
-                ),
-                itemBuilder: (context, index) => ProductCart(
-                  product: demoProducts[index],
-                ),
+              itemBuilder: (context, index) => ProductCart(
+                product: demoProducts[index],
+              ),
             ),
           ),
         ),
@@ -45,5 +45,3 @@ class PopularProducts extends StatelessWidget {
     );
   }
 }
-
-

@@ -14,28 +14,27 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(vertical: getProportionateScreenWidth(10)),
-      child: Stack(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SearchField(),
-              IconBtnWithCounter(
-                svgSrc: "assets/icons/Cart Icon.svg",
-                press: () => Navigator.pushNamed(context, CartScreen.routeName),
-              ),
-              IconBtnWithCounter(
-                svgSrc: "assets/icons/Bell.svg",
-                numOfitem: 3,
-                press: () {},
-              ),
-
-            ],
-          ),
-        ],
-      )
-
-    );
+        padding:
+            EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+        child: Stack(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SearchField(),
+                IconBtnWithCounter(
+                  svgSrc: "assets/icons/Cart Icon.svg",
+                  press: () =>
+                      Navigator.pushNamed(context, CartScreen.routeName),
+                ),
+                // IconBtnWithCounter(
+                //   svgSrc: "assets/icons/Bell.svg",
+                //   numOfitem: 3,
+                //   press: () {},
+                // ),
+              ],
+            ),
+          ],
+        ));
   }
 }

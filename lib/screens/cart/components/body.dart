@@ -17,7 +17,7 @@ class _BodyState extends State<Body> {
       children: [
         Padding(
           padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
           child: ListView.builder(
             itemCount: demoCarts.length,
             itemBuilder: (context, index) => Padding(
@@ -25,11 +25,6 @@ class _BodyState extends State<Body> {
               child: Dismissible(
                 key: Key(demoCarts[index].product.id.toString()),
                 direction: DismissDirection.endToStart,
-                onDismissed: (direction) {
-                  setState(() {
-                    demoCarts.removeAt(index);
-                  });
-                },
                 background: Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(

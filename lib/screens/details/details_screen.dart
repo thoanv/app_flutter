@@ -18,7 +18,7 @@ class DetailsScreen extends StatelessWidget {
       backgroundColor: Color(0xFFF5F6F9),
       appBar: CustomAppBar(),
       body: Body(product: agrs.product),
-      bottomNavigationBar: CustomBottomDetail(selectedMenu: MenuState.home, product: agrs.product),
+      bottomNavigationBar: CustomBottomDetail(product: agrs.product),
     );
   }
 }

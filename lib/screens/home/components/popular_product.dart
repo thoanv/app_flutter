@@ -1,49 +1,61 @@
+import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shop_app/models/Product.dart';
-import 'package:shop_app/constants.dart';
-import 'package:shop_app/screens/details/details_screen.dart';
-
+import 'package:http/http.dart' as http;
 import '../../../size_config.dart';
-import 'package:shop_app/components/product_cart.dart';
+import 'list_products.dart';
 import 'section_title.dart';
 
-class PopularProducts extends StatelessWidget {
+class PopularProducts extends StatefulWidget {
+  @override
+  _PopularProductState createState() => new _PopularProductState();
+}
+class _PopularProductState extends State<PopularProducts>{
+
   @override
   Widget build(BuildContext context) {
+    return Container(
+      child: FutureBuilder(
+        future: fetchProducts(http.Client()),
+        builder: (context, snapshot){
+          if(snapshot.hasError){
+            print(snapshot.error);
+          }
+          print(context);
+          print(snapshot.data);
+          print(snapshot.hasData);
+          return snapshot.hasData ? ShowListProduct(products: snapshot.data): Center(child: CircularProgressIndicator());
+        }
+      )
+    );
+
+  }
+}
+
+class ShowListProduct extends StatelessWidget {
+  final List<Product> products;
+  const ShowListProduct({
+    Key key,
+    this.products,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print(products);
     return Column(
       children: [
         Padding(
           padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SectionTitle(title: "Sản phẩm", press: () {}),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
-        SingleChildScrollView(
-            child: Container(
-              padding: const EdgeInsets.all(kDefaultPadding / 4),
-              decoration: BoxDecoration(
-                color: kPrimaryColor,
-              ),
-              child: GridView.builder(
-                controller: new ScrollController(keepScrollOffset: true),
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: demoProducts.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 7,
-                  crossAxisSpacing: 7,
-                  childAspectRatio: 0.75,
-                ),
-                itemBuilder: (context, index) => ProductCart(
-                  product: demoProducts[index],
-                ),
-            ),
-          ),
-        ),
+        ListProduct(products: products),
       ],
     );
   }
 }
+
 
 

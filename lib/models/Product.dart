@@ -1,29 +1,61 @@
+import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+// import 'package:json_serializable/json_serializable.dart';
+import 'package:shop_app/api/api.dart';
+import 'package:shop_app/models/global.dart';
 
 class Product {
   final int id;
-  final String title, description;
+  final String name, description, avatar;
   final List<String> images;
-  final List<Color> colors;
-  final double rating, price;
-  final bool isFavourite, isPopular;
+  final double star, price, discount;
 
   Product({
     @required this.id,
     @required this.images,
-    @required this.colors,
-    this.rating = 0.0,
-    this.isFavourite = false,
-    this.isPopular = false,
-    @required this.title,
-    @required this.price,
+    this.avatar,
+    this.star,
+    @required this.name,
+    @required this.discount,
+    this.price,
     @required this.description,
   });
+
+  Product.fromJson(Map<String, dynamic> json)
+    : id = json['id'],
+      name= json['name'],
+      images= json['images'],
+      price= json['price'],
+      discount= json['discount'],
+      avatar= json['avatar'],
+      description= json['description'],
+      star= json['star'];
+
 }
+Future<List<Product>> fetchProducts(http.Client client) async {
+  final response = await client.get(BASE_URL+'products');
+  if (response.statusCode == 200) {
+    Map<String, dynamic> mapResponse = json.decode(response.body);
+    final products = mapResponse["data"].cast<Map<String, dynamic>>();
+    List<Product> listOfProducts = await products.map<Product>((json){
+      print("trong đây");
+      print(json);
+      return Product.fromJson(json);
+    }).toList();
+    print("0000");
+    print(listOfProducts);
+    return listOfProducts;
+  } else {
+    throw Exception('Unable to fetch products from the REST API');
+  }
+}
+
 
 // Our demo Products
 
-List<Product> demoProducts = [
+List<Product> products = [
   Product(
     id: 1,
     images: [
@@ -31,18 +63,10 @@ List<Product> demoProducts = [
       "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Tảo xoắn đại việt chất lượng cao",
+    name: "Tảo xoắn đại việt chất lượng cao",
     price: 700000,
     description: description,
-    rating: 4.8,
-    isFavourite: true,
-    isPopular: true,
+    star: 4.8,
   ),
   Product(
     id: 2,
@@ -52,192 +76,109 @@ List<Product> demoProducts = [
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Tốt rất Tảo xoắn đại việt chất lượng cao Tảo xoắn đại việt chất lượng cao rất là tuyệt vời với người dùng ",
+    name: "Tốt rất Tảo xoắn đại việt chất lượng cao Tảo xoắn đại việt chất lượng cao rất là tuyệt vời với người dùng ",
     price: 700000,
     description: description,
-    rating: 4.1,
-    isPopular: true,
+    star: 4.1,
   ),
   Product(
     id: 3,
     images: [
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Gloves XC Omega - Polygon",
+    name: "Gloves XC Omega - Polygon",
     price: 700000,
     description: description,
-    rating: 4.1,
-    isFavourite: true,
-    isPopular: true,
+    star: 4.1,
   ),
   Product(
     id: 4,
     images: [
       "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Logitech Head",
+    name: "Logitech Head",
     price: 200000,
     description: description,
-    rating: 4.1,
-    isFavourite: true,
+    star: 4.1,
   ),
   Product(
     id: 5,
     images: [
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Wireless Controller for PS4™",
+
+    name: "Wireless Controller for PS4™",
     price: 900000,
     description: description,
-    rating: 4.8,
-    isFavourite: true,
-    isPopular: true,
+    star: 4.8,
   ),
   Product(
     id: 6,
     images: [
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Nike Sport White - Man Pant",
+
+    name: "Nike Sport White - Man Pant",
     price: 50.5,
     description: description,
-    rating: 4.1,
-    isPopular: true,
+    star: 4.1,
+
   ),
   Product(
     id: 7,
     images: [
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Gloves XC Omega - Polygon",
+
+    name: "Gloves XC Omega - Polygon",
     price: 36.55,
     description: description,
-    rating: 4.1,
-    isFavourite: true,
-    isPopular: true,
+    star: 4.1,
   ),
   Product(
     id: 8,
     images: [
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Logitech Head",
+
+    name: "Logitech Head",
     price: 20.20,
     description: description,
-    rating: 4.1,
-    isFavourite: true,
+    star: 4.1,
   ),
   Product(
     id: 9,
     images: [
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Gloves XC Omega - Polygon",
+
+    name: "Gloves XC Omega - Polygon",
     price: 36.55,
     description: description,
-    rating: 4.1,
-    isFavourite: true,
-    isPopular: true,
+    star: 4.1,
   ),
   Product(
     id: 10,
     images: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRszZuaV_1IEGyYWERDbVnEYyS1RR-sHw-3Lg&usqp=CAU",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Logitech Head",
+
+    name: "Logitech Head",
     price: 20.20,
     description: description,
-    rating: 4.1,
-    isFavourite: true,
+    star: 4.1,
+
   ),
   Product(
     id: 11,
     images: [
       "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Gloves XC Omega - Polygon",
+
+    name: "Gloves XC Omega - Polygon",
     price: 36.55,
     description: description,
-    rating: 4.1,
-    isFavourite: true,
-    isPopular: true,
-  ),
-  Product(
-    id: 12,
-    images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-    ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Logitech Head",
-    price: 20.20,
-    description: description,
-    rating: 4.1,
-    isFavourite: true,
+    star: 4.1,
   ),
 ];
 

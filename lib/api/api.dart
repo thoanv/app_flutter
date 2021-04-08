@@ -60,10 +60,14 @@ class CallApi{
   getData(appUrl) async {
     var fullUrl = base_url + appUrl;
     print(fullUrl);
-    return await http.get(
-        fullUrl,
-        headers: _setHeaders()
-    );
+    var response =  await http.get(fullUrl,headers: _setHeaders());
+    print(fullUrl);
+    print(response);
+    if (response.statusCode == 200) {
+      return response;
+    } else {
+      throw Exception('Failed.');
+    }
   }
 
   _setHeaders() => {

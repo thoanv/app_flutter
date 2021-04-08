@@ -28,7 +28,7 @@ class PopularProducts extends StatelessWidget {
               controller: new ScrollController(keepScrollOffset: true),
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              itemCount: demoProducts.length,
+              itemCount: products.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 7,
@@ -36,7 +36,7 @@ class PopularProducts extends StatelessWidget {
                 childAspectRatio: 0.75,
               ),
               itemBuilder: (context, index) => ProductCart(
-                product: demoProducts[index],
+                product: products[index],
               ),
             ),
           ),

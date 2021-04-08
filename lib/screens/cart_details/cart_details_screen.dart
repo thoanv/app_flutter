@@ -8,6 +8,7 @@ class CartDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context),
       body: Body(),
+      
     );
   }
 

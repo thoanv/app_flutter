@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/components/product_cart.dart';
 import 'package:shop_app/models/Cart.dart';
 import 'package:intl/intl.dart';
@@ -237,6 +238,112 @@ class CartDetailsCard extends StatelessWidget {
               ],
             ),
           ),
+          InkWell(
+            onTap: () => Navigator.pushNamed(
+              context,
+              DetailsScreen.routeName,
+              arguments: ProductDetailsArguments(product: product),
+            ),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 88,
+                  child: AspectRatio(
+                    aspectRatio: 0.88,
+                    child: Container(
+                      // padding: EdgeInsets.all(getProportionateScreenWidth(10)),
+                      // decoration: BoxDecoration(
+                      //     // color: Color(0xFFF5F6F9),
+                      //     // borderRadius: BorderRadius.circular(15),
+                      //     ),
+                      child: Image.network(
+                          "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg"),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 20),
+                Expanded(
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Tảo xoắn đại việt chất lượng cao",
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      maxLines: 2,
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Text("Trắng", style: TextStyle(color: Colors.black)),
+                        Spacer(),
+                        Text("x1",
+                            style: Theme.of(context).textTheme.bodyText1),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      "700.000₫",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600, color: Colors.red),
+                    ),
+                  ],
+                )),
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () => Navigator.pushNamed(
+              context,
+              DetailsScreen.routeName,
+              arguments: ProductDetailsArguments(product: product),
+            ),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 88,
+                  child: AspectRatio(
+                    aspectRatio: 0.88,
+                    child: Container(
+                      // padding: EdgeInsets.all(getProportionateScreenWidth(10)),
+                      // decoration: BoxDecoration(
+                      //     // color: Color(0xFFF5F6F9),
+                      //     // borderRadius: BorderRadius.circular(15),
+                      //     ),
+                      child: Image.network(
+                          "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg"),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 20),
+                Expanded(
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Tảo xoắn đại việt chất lượng cao",
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      maxLines: 2,
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Text("Trắng", style: TextStyle(color: Colors.black)),
+                        Spacer(),
+                        Text("x1",
+                            style: Theme.of(context).textTheme.bodyText1),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      "700.000₫",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600, color: Colors.red),
+                    ),
+                  ],
+                )),
+              ],
+            ),
+          ),
           const Divider(
             height: 2,
             thickness: 1,
@@ -269,6 +376,7 @@ class CartDetailsCard extends StatelessWidget {
                     color: Colors.teal,
                     size: 16,
                   ),
+                  SizedBox(width: 3),
                   Text("Phương thức thanh toán",
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
@@ -286,6 +394,97 @@ class CartDetailsCard extends StatelessWidget {
                 ),
               )
             ],
+          ),
+          SizedBox(height: 5),
+          const Divider(
+            height: 2,
+            thickness: 1,
+          ),
+          SizedBox(height: 5),
+          Column(
+            children: [
+              Row(
+                children: [
+                  Text(
+                    "Mã đơn hàng",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "2121312414A2MK",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 3),
+              Row(
+                children: [
+                  Text(
+                    "Thời gian đặt hàng",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "04-04-2021 12:22",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 2),
+              Row(
+                children: [
+                  Text(
+                    "Thời gian giao hàng cho vận chuyện",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "06-04-2021 12:22",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          const Divider(
+            height: 2,
+            thickness: 3,
+          ),
+          Container(
+            margin: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
+            decoration: BoxDecoration(border: Border.all(color: Colors.teal)),
+            child: Center(
+                child: Text(
+              "Liên hệ shop",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            )),
           ),
         ],
       ),

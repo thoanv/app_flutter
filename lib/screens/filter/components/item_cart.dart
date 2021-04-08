@@ -45,7 +45,7 @@ class ItemCart extends StatelessWidget {
               // margin: const EdgeInsets.all(0),
               // height: 100,
               child: Text(
-                product.title,
+                product.name,
                 style: TextStyle(color: Colors.black, fontSize: 14),
               ),
             ),

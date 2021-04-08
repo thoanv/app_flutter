@@ -26,7 +26,7 @@ class ProductTitle extends StatelessWidget {
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
           child: Text(
-            product.title,
+            product.name,
             style: Theme.of(context).textTheme.headline6,
           ),
         ),
@@ -60,7 +60,7 @@ class ProductTitle extends StatelessWidget {
               Row(
                   children: <Widget>[
                     RatingBarIndicator(
-                      rating: product.rating,
+                      rating: product.star,
                       itemBuilder: (context, index) => Icon(
                         Icons.star,
                         color: Colors.amber,
@@ -71,7 +71,7 @@ class ProductTitle extends StatelessWidget {
                     ),
                     SizedBox(width: getProportionateScreenWidth(5)),
                     Text(
-                      " ${product.rating}",
+                      " ${product.star}",
                         style:TextStyle(fontWeight: FontWeight.bold, color: Colors.amber, fontSize: 18),
                     ),
                     SizedBox(width: getProportionateScreenWidth(10)),
@@ -83,7 +83,7 @@ class ProductTitle extends StatelessWidget {
                     ),
                     Spacer(),
                     SvgPicture.asset(
-                      product.isFavourite ? "assets/icons/heart.svg" : "assets/icons/heart_red.svg",
+                      "assets/icons/heart_red.svg",
                       height: 20,
                     ),
                   ]

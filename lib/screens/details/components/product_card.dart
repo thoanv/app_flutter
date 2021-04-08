@@ -55,7 +55,7 @@ class ProductCard extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          product.title,
+                          product.name,
                           style: TextStyle(color: Colors.black),
                           maxLines: 2,
                         ),

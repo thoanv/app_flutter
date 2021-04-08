@@ -25,18 +25,6 @@ class CustomBottomDetail extends StatefulWidget {
 class _CustomBottomDetailState extends State<CustomBottomDetail> {
   int quantity = 1;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   quantity = widget.count;
-  // }
-  void _updateState() {
-    print(quantity);
-    setState(() {
-      quantity++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final Color inActiveIconColor = Color(0xFFB6B6B6);

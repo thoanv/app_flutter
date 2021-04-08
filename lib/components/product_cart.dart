@@ -40,7 +40,7 @@ class ProductCart extends StatelessWidget {
                 child: Expanded(
                   child: Container(
                     padding: EdgeInsets.all(kDefaultPadding / 5),
-                    child: Image.network(product.images[0], fit: BoxFit.cover),
+                    child: Image.network(product.avatar, fit: BoxFit.cover),
                   ),
                 ),
               ),
@@ -49,7 +49,7 @@ class ProductCart extends StatelessWidget {
                   // margin: const EdgeInsets.all(0),
                   // height: 100,
                   child: Text(
-                    product.title,
+                    product.name,
                     style: TextStyle(color: Colors.black, fontSize: 14),
                   ),
                 ),

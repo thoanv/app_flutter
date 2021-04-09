@@ -13,8 +13,6 @@ class ListProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("trang list");
-    print(products);
     return SingleChildScrollView(
       child: Container(
         padding: const EdgeInsets.all(kDefaultPadding / 4),

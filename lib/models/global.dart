@@ -1,1 +1,1 @@
-const BASE_URL = 'https://api.davichat.info/';
+const BASE_URL = 'api.davichat.info';

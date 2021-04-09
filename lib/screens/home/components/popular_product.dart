@@ -12,11 +12,14 @@ class PopularProducts extends StatefulWidget {
   _PopularProductState createState() => new _PopularProductState();
 }
 class _PopularProductState extends State<PopularProducts>{
+  var queryParameters = {
+    'status': '2',
+  };
   @override
   Widget build(BuildContext context) {
     return Container(
       child: FutureBuilder(
-        future: fetchProducts(http.Client(), 'products'),
+        future: fetchProducts(http.Client(), 'products', queryParameters),
         builder: (context, snapshot){
           if(snapshot.hasError){
             print(snapshot.error);

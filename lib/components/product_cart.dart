@@ -16,8 +16,6 @@ class ProductCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("đây rồi");
-    print(product);
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,

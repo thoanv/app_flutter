@@ -16,7 +16,7 @@ class _PopularProductState extends State<PopularProducts>{
   Widget build(BuildContext context) {
     return Container(
       child: FutureBuilder(
-        future: fetchProducts(http.Client()),
+        future: fetchProducts(http.Client(), 'products'),
         builder: (context, snapshot){
           if(snapshot.hasError){
             print(snapshot.error);

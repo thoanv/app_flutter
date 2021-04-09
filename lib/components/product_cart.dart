@@ -16,8 +16,6 @@ class ProductCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("đây rồi");
-    print(product);
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -45,38 +43,41 @@ class ProductCart extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  // margin: const EdgeInsets.all(0),
+                  padding: const EdgeInsets.symmetric(horizontal: 7),
                   // height: 100,
                   child: Text(
                     product.name.toString(),
-                    style: TextStyle(color: Colors.black, fontSize: 14),
+                    style: TextStyle(color: Colors.black, fontSize: 13),
                   ),
                 ),
               ),
-              Expanded(
+              Container(
+                height: 30,
+                padding: const EdgeInsets.symmetric(horizontal: 7),
+                child: Expanded(
                   child: Row(
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
-                          "${NumberFormat.currency(locale: 'vi', symbol: '₫').format(1000)}",
+                          "${NumberFormat.currency(locale: 'vi', symbol: '₫').format(double.parse(product.discount))}",
                           style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.red,
-                          fontSize: 18),
+                              fontWeight: FontWeight.bold,
+                              color: Colors.red,
+                              fontSize: 16),
                         ),
                       ),
                       Spacer(),
                       Container(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        // padding: const EdgeInsets.symmetric(vertical: 0),
                         child: Text(
                           "Đã Bán 10K",
-                          style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 12),
                         ),
                       ),
-                  ],
-              ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),

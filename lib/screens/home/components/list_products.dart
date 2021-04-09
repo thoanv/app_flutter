@@ -1,20 +1,43 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:shop_app/components/product_cart.dart';
 import 'package:shop_app/models/Product.dart';
-
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
 import '../../../constants.dart';
 
-class ListProduct extends StatelessWidget {
-  final products;
+class ListProduct extends StatefulWidget {
+  final List<Product> products;
   const ListProduct({
     Key key,
     this.products,
   }) : super(key: key);
 
   @override
+  _ListProductState createState() => _ListProductState();
+}
+
+class _ListProductState extends State<ListProduct> {
+  List products = new List<dynamic>();
+  bool isLoading = false;
+  int pageCount = 1;
+  ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    ////LOADING FIRST  DATA
+    addItemIntoLisT(0);
+
+    _scrollController = new ScrollController(initialScrollOffset: 5.0)
+      ..addListener(_scrollListener);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    print("trang list");
-    print(products);
     return SingleChildScrollView(
       child: Container(
         padding: const EdgeInsets.all(kDefaultPadding / 4),
@@ -22,7 +45,7 @@ class ListProduct extends StatelessWidget {
           color: kPrimaryColor,
         ),
         child: GridView.builder(
-          controller: new ScrollController(keepScrollOffset: true),
+          controller: _scrollController,
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           itemCount: products.length,
@@ -33,10 +56,44 @@ class ListProduct extends StatelessWidget {
             childAspectRatio: 0.75,
           ),
           itemBuilder: (context, index) => ProductCart(
-            product: products[index],
+            product: widget.products[index],
           ),
         ),
       ),
     );
+  }
+
+  //// ADDING THE SCROLL LISTINER
+  _scrollListener() {
+    if (_scrollController.offset >=
+            _scrollController.position.maxScrollExtent &&
+        !_scrollController.position.outOfRange) {
+      setState(() {
+        print("comes to bottom $isLoading");
+        isLoading = true;
+
+        if (isLoading) {
+          print("RUNNING LOAD MORE");
+
+          pageCount = pageCount + 1;
+
+          addItemIntoLisT(pageCount);
+        }
+      });
+    }
+  }
+
+  ////ADDING DATA INTO ARRAYLIST
+  void addItemIntoLisT(var pageCount) {
+    for (int i = (pageCount * 5) - 5; i < pageCount * 5; i++) {
+      products.add(i);
+      isLoading = false;
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 }

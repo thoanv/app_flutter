@@ -11,20 +11,23 @@ class PopularProducts extends StatefulWidget {
   @override
   _PopularProductState createState() => new _PopularProductState();
 }
-class _PopularProductState extends State<PopularProducts>{
+
+class _PopularProductState extends State<PopularProducts> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: FutureBuilder(
-        future: fetchProducts(http.Client(), 'products'),
-        builder: (context, snapshot){
-          if(snapshot.hasError){
-            print(snapshot.error);
-          }
-          return snapshot.hasData ? ShowListProduct(products: snapshot.data): Center(child: CircularProgressIndicator());
-        }
-      )
-    );
+        child: FutureBuilder(
+            future: fetchProducts(http.Client(), 'products'),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                print(snapshot.error);
+              }
+
+              return snapshot.hasData
+                  ? ShowListProduct(products: snapshot.data)
+                  : Center(child: CircularProgressIndicator());
+            }
+));
   }
 }
 
@@ -36,11 +39,12 @@ class ShowListProduct extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    print(products);
     return Column(
       children: [
         Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SectionTitle(title: "Sản phẩm", press: () {}),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
@@ -49,6 +53,3 @@ class ShowListProduct extends StatelessWidget {
     );
   }
 }
-
-
-

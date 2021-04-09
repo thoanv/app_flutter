@@ -78,6 +78,7 @@ Future<List<Product>> fetchProducts(http.Client client, appUrl) async {
   if (response.statusCode == 200) {
     Map<String, dynamic> mapResponse = json.decode(response.body);
     final products = mapResponse["data"].cast<Map<String, dynamic>>();
+
     List<Product> listOfProducts = await products.map<Product>((json) {
       return Product.fromJson(json);
     }).toList();

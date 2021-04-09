@@ -20,7 +20,7 @@ class ListProduct extends StatefulWidget {
 }
 
 class _ListProductState extends State<ListProduct> {
-  List products = new List<dynamic>();
+  List products = [];
   bool isLoading = false;
   int pageCount = 1;
   ScrollController _scrollController;
@@ -30,9 +30,9 @@ class _ListProductState extends State<ListProduct> {
     super.initState();
 
     ////LOADING FIRST  DATA
-    addItemIntoLisT(0);
+    addItemIntoLisT(1);
 
-    _scrollController = new ScrollController(initialScrollOffset: 5.0)
+     _scrollController = new ScrollController(initialScrollOffset: 5.0)
       ..addListener(_scrollListener);
   }
 
@@ -71,7 +71,7 @@ class _ListProductState extends State<ListProduct> {
       setState(() {
         print("comes to bottom $isLoading");
         isLoading = true;
-
+        print(_scrollController.offset);
         if (isLoading) {
           print("RUNNING LOAD MORE");
 
@@ -86,7 +86,7 @@ class _ListProductState extends State<ListProduct> {
   ////ADDING DATA INTO ARRAYLIST
   void addItemIntoLisT(var pageCount) {
     for (int i = (pageCount * 5) - 5; i < pageCount * 5; i++) {
-      products.add(i);
+      products.add(products);
       isLoading = false;
     }
   }

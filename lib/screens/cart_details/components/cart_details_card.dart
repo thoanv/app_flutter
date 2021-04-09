@@ -472,7 +472,7 @@ class CartDetailsCard extends StatelessWidget {
             thickness: 3,
           ),
           Container(
-            margin: const EdgeInsets.all(10.0),
+            margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             padding: const EdgeInsets.all(10.0),
             decoration: BoxDecoration(border: Border.all(color: Colors.teal)),
             child: Center(

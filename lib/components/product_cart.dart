@@ -16,12 +16,12 @@ class ProductCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("đây rồi");
+    print(product);
     return Container(
-      padding: EdgeInsets.all(5),
       decoration: BoxDecoration(
         color: Colors.white,
       ),
-      height: 500,
       child: SizedBox(
         child: GestureDetector(
           onTap: () => Navigator.pushNamed(
@@ -33,13 +33,12 @@ class ProductCart extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 5),
+                padding: EdgeInsets.symmetric(horizontal: 0),
                 // decoration: BoxDecoration(
                 //   color: Colors.black,
                 // ),
                 child: Expanded(
                   child: Container(
-                    padding: EdgeInsets.all(kDefaultPadding / 5),
                     child: Image.network(product.avatar, fit: BoxFit.cover),
                   ),
                 ),
@@ -49,7 +48,7 @@ class ProductCart extends StatelessWidget {
                   // margin: const EdgeInsets.all(0),
                   // height: 100,
                   child: Text(
-                    product.name,
+                    product.name.toString(),
                     style: TextStyle(color: Colors.black, fontSize: 14),
                   ),
                 ),
@@ -60,7 +59,7 @@ class ProductCart extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
-                          "${NumberFormat.currency(locale: 'vi', symbol: '₫').format(product.price)}",
+                          "${NumberFormat.currency(locale: 'vi', symbol: '₫').format(1000)}",
                           style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.red,

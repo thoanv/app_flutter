@@ -40,18 +40,14 @@ Future<List<Product>> fetchProducts(http.Client client) async {
     Map<String, dynamic> mapResponse = json.decode(response.body);
     final products = mapResponse["data"].cast<Map<String, dynamic>>();
     List<Product> listOfProducts = await products.map<Product>((json){
-      print("trong đây");
-      print(json);
       return Product.fromJson(json);
     }).toList();
-    print("0000");
     print(listOfProducts);
     return listOfProducts;
   } else {
     throw Exception('Unable to fetch products from the REST API');
   }
 }
-
 
 // Our demo Products
 

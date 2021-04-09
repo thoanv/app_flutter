@@ -12,7 +12,6 @@ class PopularProducts extends StatefulWidget {
   _PopularProductState createState() => new _PopularProductState();
 }
 class _PopularProductState extends State<PopularProducts>{
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,14 +21,10 @@ class _PopularProductState extends State<PopularProducts>{
           if(snapshot.hasError){
             print(snapshot.error);
           }
-          print(context);
-          print(snapshot.data);
-          print(snapshot.hasData);
           return snapshot.hasData ? ShowListProduct(products: snapshot.data): Center(child: CircularProgressIndicator());
         }
       )
     );
-
   }
 }
 
@@ -39,10 +34,8 @@ class ShowListProduct extends StatelessWidget {
     Key key,
     this.products,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    print(products);
     return Column(
       children: [
         Padding(

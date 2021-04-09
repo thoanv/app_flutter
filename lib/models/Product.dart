@@ -16,10 +16,10 @@ class Product {
     @required this.id,
     @required this.images,
     this.avatar,
-    this.star,
+    this.star  = 4,
     @required this.name,
-    @required this.discount,
-    this.price,
+    @required this.discount = 200000,
+    this.price  = 200000,
     @required this.description,
   });
 
@@ -40,11 +40,8 @@ Future<List<Product>> fetchProducts(http.Client client) async {
     Map<String, dynamic> mapResponse = json.decode(response.body);
     final products = mapResponse["data"].cast<Map<String, dynamic>>();
     List<Product> listOfProducts = await products.map<Product>((json){
-      print("trong đây");
-      print(json);
       return Product.fromJson(json);
     }).toList();
-    print("0000");
     print(listOfProducts);
     return listOfProducts;
   } else {
@@ -52,134 +49,133 @@ Future<List<Product>> fetchProducts(http.Client client) async {
   }
 }
 
-
 // Our demo Products
 
 List<Product> products = [
-  Product(
-    id: 1,
-    images: [
-      "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
-      "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-    ],
-    name: "Tảo xoắn đại việt chất lượng cao",
-    price: 700000,
-    description: description,
-    star: 4.8,
-  ),
-  Product(
-    id: 2,
-    images: [
-      "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-    ],
-    name: "Tốt rất Tảo xoắn đại việt chất lượng cao Tảo xoắn đại việt chất lượng cao rất là tuyệt vời với người dùng ",
-    price: 700000,
-    description: description,
-    star: 4.1,
-  ),
-  Product(
-    id: 3,
-    images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-    ],
-    name: "Gloves XC Omega - Polygon",
-    price: 700000,
-    description: description,
-    star: 4.1,
-  ),
-  Product(
-    id: 4,
-    images: [
-      "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
-    ],
-    name: "Logitech Head",
-    price: 200000,
-    description: description,
-    star: 4.1,
-  ),
-  Product(
-    id: 5,
-    images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-    ],
-
-    name: "Wireless Controller for PS4™",
-    price: 900000,
-    description: description,
-    star: 4.8,
-  ),
-  Product(
-    id: 6,
-    images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-    ],
-
-    name: "Nike Sport White - Man Pant",
-    price: 50.5,
-    description: description,
-    star: 4.1,
-
-  ),
-  Product(
-    id: 7,
-    images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-    ],
-
-    name: "Gloves XC Omega - Polygon",
-    price: 36.55,
-    description: description,
-    star: 4.1,
-  ),
-  Product(
-    id: 8,
-    images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-    ],
-
-    name: "Logitech Head",
-    price: 20.20,
-    description: description,
-    star: 4.1,
-  ),
-  Product(
-    id: 9,
-    images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-    ],
-
-    name: "Gloves XC Omega - Polygon",
-    price: 36.55,
-    description: description,
-    star: 4.1,
-  ),
-  Product(
-    id: 10,
-    images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRszZuaV_1IEGyYWERDbVnEYyS1RR-sHw-3Lg&usqp=CAU",
-    ],
-
-    name: "Logitech Head",
-    price: 20.20,
-    description: description,
-    star: 4.1,
-
-  ),
-  Product(
-    id: 11,
-    images: [
-      "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
-    ],
-
-    name: "Gloves XC Omega - Polygon",
-    price: 36.55,
-    description: description,
-    star: 4.1,
-  ),
+  // Product(
+  //   id: 1,
+  //   images: [
+  //     "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
+  //     "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
+  //     "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+  //   ],
+  //   name: "Tảo xoắn đại việt chất lượng cao",
+  //   price: 700000,
+  //   description: description,
+  //   star: 4.8,
+  // ),
+  // Product(
+  //   id: 2,
+  //   images: [
+  //     "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
+  //     "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+  //     "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+  //     "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+  //   ],
+  //   name: "Tốt rất Tảo xoắn đại việt chất lượng cao Tảo xoắn đại việt chất lượng cao rất là tuyệt vời với người dùng ",
+  //   price: 700000,
+  //   description: description,
+  //   star: 4.1,
+  // ),
+  // Product(
+  //   id: 3,
+  //   images: [
+  //     "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+  //   ],
+  //   name: "Gloves XC Omega - Polygon",
+  //   price: 700000,
+  //   description: description,
+  //   star: 4.1,
+  // ),
+  // Product(
+  //   id: 4,
+  //   images: [
+  //     "https://cdn.davichat.info/images/products/5/san-pham-test1616640443935.jpg",
+  //   ],
+  //   name: "Logitech Head",
+  //   price: 200000,
+  //   description: description,
+  //   star: 4.1,
+  // ),
+  // Product(
+  //   id: 5,
+  //   images: [
+  //     "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+  //   ],
+  //
+  //   name: "Wireless Controller for PS4™",
+  //   price: 900000,
+  //   description: description,
+  //   star: 4.8,
+  // ),
+  // Product(
+  //   id: 6,
+  //   images: [
+  //     "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+  //   ],
+  //
+  //   name: "Nike Sport White - Man Pant",
+  //   price: 50.5,
+  //   description: description,
+  //   star: 4.1,
+  //
+  // ),
+  // Product(
+  //   id: 7,
+  //   images: [
+  //     "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+  //   ],
+  //
+  //   name: "Gloves XC Omega - Polygon",
+  //   price: 36.55,
+  //   description: description,
+  //   star: 4.1,
+  // ),
+  // Product(
+  //   id: 8,
+  //   images: [
+  //     "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+  //   ],
+  //
+  //   name: "Logitech Head",
+  //   price: 20.20,
+  //   description: description,
+  //   star: 4.1,
+  // ),
+  // Product(
+  //   id: 9,
+  //   images: [
+  //     "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+  //   ],
+  //
+  //   name: "Gloves XC Omega - Polygon",
+  //   price: 36.55,
+  //   description: description,
+  //   star: 4.1,
+  // ),
+  // Product(
+  //   id: 10,
+  //   images: [
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRszZuaV_1IEGyYWERDbVnEYyS1RR-sHw-3Lg&usqp=CAU",
+  //   ],
+  //
+  //   name: "Logitech Head",
+  //   price: 20.20,
+  //   description: description,
+  //   star: 4.1,
+  //
+  // ),
+  // Product(
+  //   id: 11,
+  //   images: [
+  //     "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg",
+  //   ],
+  //
+  //   name: "Gloves XC Omega - Polygon",
+  //   price: 36.55,
+  //   description: description,
+  //   star: 4.1,
+  // ),
 ];
 
 const String description =

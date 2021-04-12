@@ -11,23 +11,23 @@ class PopularProducts extends StatefulWidget {
   @override
   _PopularProductState createState() => new _PopularProductState();
 }
-
-class _PopularProductState extends State<PopularProducts> {
+class _PopularProductState extends State<PopularProducts>{
+  var queryParameters = {
+    'status': '2',
+  };
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: FutureBuilder(
-            future: fetchProducts(http.Client(), 'products'),
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                print(snapshot.error);
-              }
-
-              return snapshot.hasData
-                  ? ShowListProduct(products: snapshot.data)
-                  : Center(child: CircularProgressIndicator());
-            }
-));
+      child: FutureBuilder(
+        future: fetchProducts(http.Client(), 'products', queryParameters),
+        builder: (context, snapshot){
+          if(snapshot.hasError){
+            print(snapshot.error);
+          }
+          return snapshot.hasData ? ShowListProduct(products: snapshot.data): Center(child: CircularProgressIndicator());
+        }
+      )
+    );
   }
 }
 

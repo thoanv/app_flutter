@@ -37,6 +37,7 @@ dependencies:
   intl: ^0.17.0
   flutter_bloc: ^7.0.0
   json_annotation: ^4.0.1
+  fluri: ^2.0.0
 
 dev_dependencies:
   flutter_test:

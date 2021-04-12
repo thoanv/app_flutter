@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shop_app/models/global.dart';
@@ -17,9 +18,9 @@ class Product {
       user_id;
   final String name, description, avatar, slug, name_group_one, created_at;
   final List<String> images;
-  // final List<String> categories;
-  // final List<String> name_group_two;
-  // final List<String> checkfavourite;
+  final List<dynamic> categories;
+  final List<dynamic> name_group_two;
+  final bool checkfavourite;
   var star, price, discount;
   Product({
     @required this.id,
@@ -42,9 +43,9 @@ class Product {
     this.width,
     this.height,
     this.created_at,
-    // this.categories,
-    // this.name_group_two,
-    // this.checkfavourite,
+    this.categories,
+    this.name_group_two,
+    this.checkfavourite,
   });
 
   Product.fromJson(Map<String, dynamic> json)
@@ -67,14 +68,18 @@ class Product {
         width = json['width'],
         height = json['height'],
         created_at = json['created_at'],
-        // categories = json['categories'],
-        // name_group_two = json['name_group_two'],
-        // checkfavourite = json['checkfavourite'],
+        categories = json['categories'],
+        name_group_two = json['name_group_two'],
+        checkfavourite = json['checkfavourite'],
         star = json['star'];
 }
 
-Future<List<Product>> fetchProducts(http.Client client, appUrl) async {
-  final response = await client.get(BASE_URL + appUrl);
+Future<List<Product>> fetchProducts(http.Client client, appUrl, queryParameters) async {
+  var uri = Uri.https(BASE_URL, appUrl, queryParameters);
+  var response = await http.get(uri, headers: {
+    HttpHeaders.contentTypeHeader: 'application/json',
+  });
+  // final response = await http.get(uri);
   if (response.statusCode == 200) {
     Map<String, dynamic> mapResponse = json.decode(response.body);
     final products = mapResponse["data"].cast<Map<String, dynamic>>();
@@ -85,6 +90,7 @@ Future<List<Product>> fetchProducts(http.Client client, appUrl) async {
 
     return listOfProducts;
   } else {
+    //print(response.statusCode);
     throw Exception('Unable to fetch products from the REST API');
   }
 }

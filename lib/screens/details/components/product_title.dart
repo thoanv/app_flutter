@@ -60,7 +60,7 @@ class ProductTitle extends StatelessWidget {
               Row(
                   children: <Widget>[
                     RatingBarIndicator(
-                      rating: product.star,
+                      rating: 5,
                       itemBuilder: (context, index) => Icon(
                         Icons.star,
                         color: Colors.amber,
@@ -71,7 +71,7 @@ class ProductTitle extends StatelessWidget {
                     ),
                     SizedBox(width: getProportionateScreenWidth(5)),
                     Text(
-                      " ${product.star}",
+                      "5",
                         style:TextStyle(fontWeight: FontWeight.bold, color: Colors.amber, fontSize: 18),
                     ),
                     SizedBox(width: getProportionateScreenWidth(10)),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/components/default_button.dart';
+import 'package:shop_app/models/Product.dart';
 import 'package:shop_app/screens/details/components/top_rounded_container.dart';
 
 import '../../../constants.dart';
@@ -8,8 +9,9 @@ import '../../../size_config.dart';
 
 class InformationShop extends StatelessWidget {
   const InformationShop({
-    Key key,
+    Key key, this.product,
   }) : super(key: key);
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +33,10 @@ class InformationShop extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                          "Nguyễn Văn Thỏa",
+                          "${product.booth['name']}",
                           style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold)
                       ),
-                      Text(' Tp. Hà Nội', style: TextStyle(color: Colors.black, fontSize: 15)),
+                      Text('${product.booth['province']['name']}', style: TextStyle(color: Colors.black, fontSize: 15)),
                     ],
                   ),
                   Spacer(),

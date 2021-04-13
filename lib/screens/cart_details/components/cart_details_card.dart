@@ -132,218 +132,218 @@ class CartDetailsCard extends StatelessWidget {
               ),
             ],
           ),
-          InkWell(
-            onTap: () => Navigator.pushNamed(
-              context,
-              DetailsScreen.routeName,
-              arguments: ProductDetailsArguments(product: product),
-            ),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 88,
-                  child: AspectRatio(
-                    aspectRatio: 0.88,
-                    child: Container(
-                      // padding: EdgeInsets.all(getProportionateScreenWidth(10)),
-                      // decoration: BoxDecoration(
-                      //     // color: Color(0xFFF5F6F9),
-                      //     // borderRadius: BorderRadius.circular(15),
-                      //     ),
-                      child: Image.network(
-                          "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg"),
-                    ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                Expanded(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Tảo xoắn đại việt chất lượng cao",
-                      style: TextStyle(color: Colors.black, fontSize: 16),
-                      maxLines: 2,
-                    ),
-                    SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Text("Trắng", style: TextStyle(color: Colors.black)),
-                        Spacer(),
-                        Text("x1",
-                            style: Theme.of(context).textTheme.bodyText1),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "700.000₫",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, color: Colors.red),
-                    ),
-                  ],
-                )),
-              ],
-            ),
-          ),
-          InkWell(
-            onTap: () => Navigator.pushNamed(
-              context,
-              DetailsScreen.routeName,
-              arguments: ProductDetailsArguments(product: product),
-            ),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 88,
-                  child: AspectRatio(
-                    aspectRatio: 0.88,
-                    child: Container(
-                      // padding: EdgeInsets.all(getProportionateScreenWidth(10)),
-                      // decoration: BoxDecoration(
-                      //     // color: Color(0xFFF5F6F9),
-                      //     // borderRadius: BorderRadius.circular(15),
-                      //     ),
-                      child: Image.network(
-                          "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg"),
-                    ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                Expanded(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Tảo xoắn đại việt chất lượng cao",
-                      style: TextStyle(color: Colors.black, fontSize: 16),
-                      maxLines: 2,
-                    ),
-                    SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Text("Trắng", style: TextStyle(color: Colors.black)),
-                        Spacer(),
-                        Text("x1",
-                            style: Theme.of(context).textTheme.bodyText1),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "700.000₫",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, color: Colors.red),
-                    ),
-                  ],
-                )),
-              ],
-            ),
-          ),
-          InkWell(
-            onTap: () => Navigator.pushNamed(
-              context,
-              DetailsScreen.routeName,
-              arguments: ProductDetailsArguments(product: product),
-            ),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 88,
-                  child: AspectRatio(
-                    aspectRatio: 0.88,
-                    child: Container(
-                      // padding: EdgeInsets.all(getProportionateScreenWidth(10)),
-                      // decoration: BoxDecoration(
-                      //     // color: Color(0xFFF5F6F9),
-                      //     // borderRadius: BorderRadius.circular(15),
-                      //     ),
-                      child: Image.network(
-                          "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg"),
-                    ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                Expanded(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Tảo xoắn đại việt chất lượng cao",
-                      style: TextStyle(color: Colors.black, fontSize: 16),
-                      maxLines: 2,
-                    ),
-                    SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Text("Trắng", style: TextStyle(color: Colors.black)),
-                        Spacer(),
-                        Text("x1",
-                            style: Theme.of(context).textTheme.bodyText1),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "700.000₫",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, color: Colors.red),
-                    ),
-                  ],
-                )),
-              ],
-            ),
-          ),
-          InkWell(
-            onTap: () => Navigator.pushNamed(
-              context,
-              DetailsScreen.routeName,
-              arguments: ProductDetailsArguments(product: product),
-            ),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 88,
-                  child: AspectRatio(
-                    aspectRatio: 0.88,
-                    child: Container(
-                      // padding: EdgeInsets.all(getProportionateScreenWidth(10)),
-                      // decoration: BoxDecoration(
-                      //     // color: Color(0xFFF5F6F9),
-                      //     // borderRadius: BorderRadius.circular(15),
-                      //     ),
-                      child: Image.network(
-                          "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg"),
-                    ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                Expanded(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Tảo xoắn đại việt chất lượng cao",
-                      style: TextStyle(color: Colors.black, fontSize: 16),
-                      maxLines: 2,
-                    ),
-                    SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Text("Trắng", style: TextStyle(color: Colors.black)),
-                        Spacer(),
-                        Text("x1",
-                            style: Theme.of(context).textTheme.bodyText1),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "700.000₫",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, color: Colors.red),
-                    ),
-                  ],
-                )),
-              ],
-            ),
-          ),
+          // InkWell(
+          //   onTap: () => Navigator.pushNamed(
+          //     context,
+          //     DetailsScreen.routeName,
+          //     arguments: ProductDetailsArguments(product: product),
+          //   ),
+          //   child: Row(
+          //     children: [
+          //       SizedBox(
+          //         width: 88,
+          //         child: AspectRatio(
+          //           aspectRatio: 0.88,
+          //           child: Container(
+          //             // padding: EdgeInsets.all(getProportionateScreenWidth(10)),
+          //             // decoration: BoxDecoration(
+          //             //     // color: Color(0xFFF5F6F9),
+          //             //     // borderRadius: BorderRadius.circular(15),
+          //             //     ),
+          //             child: Image.network(
+          //                 "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg"),
+          //           ),
+          //         ),
+          //       ),
+          //       SizedBox(width: 20),
+          //       Expanded(
+          //           child: Column(
+          //         crossAxisAlignment: CrossAxisAlignment.start,
+          //         children: [
+          //           Text(
+          //             "Tảo xoắn đại việt chất lượng cao",
+          //             style: TextStyle(color: Colors.black, fontSize: 16),
+          //             maxLines: 2,
+          //           ),
+          //           SizedBox(height: 10),
+          //           Row(
+          //             children: [
+          //               Text("Trắng", style: TextStyle(color: Colors.black)),
+          //               Spacer(),
+          //               Text("x1",
+          //                   style: Theme.of(context).textTheme.bodyText1),
+          //             ],
+          //           ),
+          //           SizedBox(height: 10),
+          //           Text(
+          //             "700.000₫",
+          //             style: TextStyle(
+          //                 fontWeight: FontWeight.w600, color: Colors.red),
+          //           ),
+          //         ],
+          //       )),
+          //     ],
+          //   ),
+          // ),
+          // InkWell(
+          //   onTap: () => Navigator.pushNamed(
+          //     context,
+          //     DetailsScreen.routeName,
+          //     arguments: ProductDetailsArguments(product: product),
+          //   ),
+          //   child: Row(
+          //     children: [
+          //       SizedBox(
+          //         width: 88,
+          //         child: AspectRatio(
+          //           aspectRatio: 0.88,
+          //           child: Container(
+          //             // padding: EdgeInsets.all(getProportionateScreenWidth(10)),
+          //             // decoration: BoxDecoration(
+          //             //     // color: Color(0xFFF5F6F9),
+          //             //     // borderRadius: BorderRadius.circular(15),
+          //             //     ),
+          //             child: Image.network(
+          //                 "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg"),
+          //           ),
+          //         ),
+          //       ),
+          //       SizedBox(width: 20),
+          //       Expanded(
+          //           child: Column(
+          //         crossAxisAlignment: CrossAxisAlignment.start,
+          //         children: [
+          //           Text(
+          //             "Tảo xoắn đại việt chất lượng cao",
+          //             style: TextStyle(color: Colors.black, fontSize: 16),
+          //             maxLines: 2,
+          //           ),
+          //           SizedBox(height: 10),
+          //           Row(
+          //             children: [
+          //               Text("Trắng", style: TextStyle(color: Colors.black)),
+          //               Spacer(),
+          //               Text("x1",
+          //                   style: Theme.of(context).textTheme.bodyText1),
+          //             ],
+          //           ),
+          //           SizedBox(height: 10),
+          //           Text(
+          //             "700.000₫",
+          //             style: TextStyle(
+          //                 fontWeight: FontWeight.w600, color: Colors.red),
+          //           ),
+          //         ],
+          //       )),
+          //     ],
+          //   ),
+          // ),
+          // InkWell(
+          //   onTap: () => Navigator.pushNamed(
+          //     context,
+          //     DetailsScreen.routeName,
+          //     arguments: ProductDetailsArguments(product: product),
+          //   ),
+          //   child: Row(
+          //     children: [
+          //       SizedBox(
+          //         width: 88,
+          //         child: AspectRatio(
+          //           aspectRatio: 0.88,
+          //           child: Container(
+          //             // padding: EdgeInsets.all(getProportionateScreenWidth(10)),
+          //             // decoration: BoxDecoration(
+          //             //     // color: Color(0xFFF5F6F9),
+          //             //     // borderRadius: BorderRadius.circular(15),
+          //             //     ),
+          //             child: Image.network(
+          //                 "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg"),
+          //           ),
+          //         ),
+          //       ),
+          //       SizedBox(width: 20),
+          //       Expanded(
+          //           child: Column(
+          //         crossAxisAlignment: CrossAxisAlignment.start,
+          //         children: [
+          //           Text(
+          //             "Tảo xoắn đại việt chất lượng cao",
+          //             style: TextStyle(color: Colors.black, fontSize: 16),
+          //             maxLines: 2,
+          //           ),
+          //           SizedBox(height: 10),
+          //           Row(
+          //             children: [
+          //               Text("Trắng", style: TextStyle(color: Colors.black)),
+          //               Spacer(),
+          //               Text("x1",
+          //                   style: Theme.of(context).textTheme.bodyText1),
+          //             ],
+          //           ),
+          //           SizedBox(height: 10),
+          //           Text(
+          //             "700.000₫",
+          //             style: TextStyle(
+          //                 fontWeight: FontWeight.w600, color: Colors.red),
+          //           ),
+          //         ],
+          //       )),
+          //     ],
+          //   ),
+          // ),
+          // InkWell(
+          //   onTap: () => Navigator.pushNamed(
+          //     context,
+          //     DetailsScreen.routeName,
+          //     arguments: ProductDetailsArguments(product: product),
+          //   ),
+          //   child: Row(
+          //     children: [
+          //       SizedBox(
+          //         width: 88,
+          //         child: AspectRatio(
+          //           aspectRatio: 0.88,
+          //           child: Container(
+          //             // padding: EdgeInsets.all(getProportionateScreenWidth(10)),
+          //             // decoration: BoxDecoration(
+          //             //     // color: Color(0xFFF5F6F9),
+          //             //     // borderRadius: BorderRadius.circular(15),
+          //             //     ),
+          //             child: Image.network(
+          //                 "https://cdn.davichat.info/images/products/2/tao-xoan-davi1617265243302.jpg"),
+          //           ),
+          //         ),
+          //       ),
+          //       SizedBox(width: 20),
+          //       Expanded(
+          //           child: Column(
+          //         crossAxisAlignment: CrossAxisAlignment.start,
+          //         children: [
+          //           Text(
+          //             "Tảo xoắn đại việt chất lượng cao",
+          //             style: TextStyle(color: Colors.black, fontSize: 16),
+          //             maxLines: 2,
+          //           ),
+          //           SizedBox(height: 10),
+          //           Row(
+          //             children: [
+          //               Text("Trắng", style: TextStyle(color: Colors.black)),
+          //               Spacer(),
+          //               Text("x1",
+          //                   style: Theme.of(context).textTheme.bodyText1),
+          //             ],
+          //           ),
+          //           SizedBox(height: 10),
+          //           Text(
+          //             "700.000₫",
+          //             style: TextStyle(
+          //                 fontWeight: FontWeight.w600, color: Colors.red),
+          //           ),
+          //         ],
+          //       )),
+          //     ],
+          //   ),
+          // ),
           const Divider(
             height: 2,
             thickness: 1,

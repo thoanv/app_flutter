@@ -25,7 +25,7 @@ class ProductCart extends StatelessWidget {
           onTap: () => Navigator.pushNamed(
             context,
             DetailsScreen.routeName,
-            arguments: ProductDetailsArguments(product: product),
+            arguments: ProductDetailsArguments(product_id: product.id),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

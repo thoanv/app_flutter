@@ -28,7 +28,7 @@ class ProductCard extends StatelessWidget {
           onTap: () => Navigator.pushNamed(
             context,
             DetailsScreen.routeName,
-            arguments: ProductDetailsArguments(product: product),
+            arguments: ProductDetailsArguments(product_id: product.id),
           ),
           child: Container(
             decoration: BoxDecoration(
@@ -46,7 +46,7 @@ class ProductCard extends StatelessWidget {
                     ),
                     child: Hero(
                       tag: product.id.toString(),
-                      child: Image.network(product.images[0], fit: BoxFit.fill),
+                      child: Image.network(product.avatar, fit: BoxFit.fill),
                     ),
                   ),
                 ),
@@ -68,7 +68,7 @@ class ProductCard extends StatelessWidget {
                                 children: [
                                   Container(
                                     child: Text(
-                                      "${NumberFormat.currency(locale: 'vi', symbol: '₫').format(product.price)}",
+                                      "${NumberFormat.currency(locale: 'vi', symbol: '₫').format(double.parse(product.discount))}",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.red,

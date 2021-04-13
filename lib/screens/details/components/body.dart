@@ -23,6 +23,7 @@ class Body extends StatelessWidget {
           children: [
             ProductImages(product: product),
             TopRoundedContainer(
+              check: true,
               color: Colors.white,
               child: Column(
                 children: [
@@ -30,6 +31,7 @@ class Body extends StatelessWidget {
                   // ProductClassify(product: product, title: "Màu sắc"),
                   // ProductClassify(product: product, title: "Size"),
                   TopRoundedContainer(
+                    check: product.name_group_one != null ? true : false,
                     color: Color(0xFFF6F7F9),
                     child: Row(
                       children: <Widget>[
@@ -37,13 +39,15 @@ class Body extends StatelessWidget {
                       ],
                     ),
                   ),
-                  ProductClassify(
-                    product: product,
-                    press: () {
-                      print("Chọn loại hàng");
-                    },
-                  ),
+                    ProductClassify(
+                      check : product.name_group_one != null ? true : false,
+                      product: product.name_group_one != null ? product : null,
+                      press: () {
+                        print("Chọn loại hàng");
+                      },
+                    ),
                   TopRoundedContainer(
+                    check: true,
                     color: Color(0xFFF6F7F9),
                     child: Row(
                       children: <Widget>[
@@ -55,6 +59,7 @@ class Body extends StatelessWidget {
                     product: product,
                   ),
                   TopRoundedContainer(
+                    check: true,
                     color: Color(0xFFF6F7F9),
                     child: Row(
                       children: <Widget>[
@@ -62,8 +67,9 @@ class Body extends StatelessWidget {
                       ],
                     ),
                   ),
-                  InformationShop(),
+                  InformationShop(product: product),
                   TopRoundedContainer(
+                    check: true,
                     color: Color(0xFFF6F7F9),
                     child: Row(
                       children: <Widget>[
@@ -71,8 +77,9 @@ class Body extends StatelessWidget {
                       ],
                     ),
                   ),
-                  RelatedProducts(),
+                  RelatedProducts(booth_id: product.booth['id'] ),
                   TopRoundedContainer(
+                    check: true,
                     color: Color(0xFFF6F7F9),
                     child: Row(
                       children: <Widget>[

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import 'package:shop_app/models/Product.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -39,12 +40,12 @@ class ProductTitle extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Text(
-                      "\₫ 200.000",
+                      "${NumberFormat.currency(locale: 'vi', symbol: '₫').format(double.parse(product.discount))}",
                       style:TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 20),
                     ),
                     SizedBox(width: getProportionateScreenWidth(5)),
                     Text(
-                      "(\₫ 200.000)",
+                      "(${NumberFormat.currency(locale: 'vi', symbol: '₫').format(double.parse(product.price))})",
                       style:TextStyle(fontWeight: FontWeight.bold, color: Colors.black45, fontSize: 16, decoration: TextDecoration.lineThrough),
                     ),
                 ],
@@ -71,14 +72,14 @@ class ProductTitle extends StatelessWidget {
                     ),
                     SizedBox(width: getProportionateScreenWidth(5)),
                     Text(
-                      "5",
+                      "${product.star}",
                         style:TextStyle(fontWeight: FontWeight.bold, color: Colors.amber, fontSize: 18),
                     ),
                     SizedBox(width: getProportionateScreenWidth(10)),
                     Text("|"),
                     SizedBox(width: getProportionateScreenWidth(10)),
                     Text(
-                        "Đã bán 4k",
+                        "Đã bán ${product.sold}",
                         style:TextStyle(fontWeight: FontWeight.bold,  fontSize: 16,),
                     ),
                     Spacer(),

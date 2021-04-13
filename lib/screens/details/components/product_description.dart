@@ -51,7 +51,7 @@ class _ProductDescriptionState extends State<ProductDescription> {
                   ),
                   Spacer(),
                   Text(
-                    'Việt Nam',
+                    '${widget.product.origin['name']}',
                     style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
                 ],
@@ -65,7 +65,7 @@ class _ProductDescriptionState extends State<ProductDescription> {
                   ),
                   Spacer(),
                   Text(
-                    'Quận Hà Đông, Tp Hà Nội',
+                    '${widget.product.booth['district']['name']}, ${widget.product.booth['province']['name']}',
                     style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
                 ],
